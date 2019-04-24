@@ -1,0 +1,167 @@
+Rasa process starting
+Restoring parameters from models/current/nlu\intent_classifier_tensorflow_embedding.ckpt
+Rasa Core server is up and running on http://localhost:5005
+Rasa process starting
+Restoring parameters from models/current/nlu\intent_classifier_tensorflow_embedding.ckpt
+Rasa Core server is up and running on http://localhost:5005
+Rasa process starting
+Restoring parameters from models/current/nlu\intent_classifier_tensorflow_embedding.ckpt
+Rasa Core server is up and running on http://localhost:5005
+Rasa process starting
+Restoring parameters from models/current/nlu\intent_classifier_tensorflow_embedding.ckpt
+Rasa Core server is up and running on http://localhost:5005
+Rasa process starting
+Restoring parameters from models/current/nlu\intent_classifier_tensorflow_embedding.ckpt
+Rasa process starting
+Restoring parameters from models/current/nlu\intent_classifier_tensorflow_embedding.ckpt
+b'hi'
+b'job'
+b'monastir'
+b'i want to work as a designer'
+Encountered an exception while running action 'action_job_description'. Bot will continue, but the actions events are lost. Make sure to fix the exception in your custom code.
+b'designer'
+Rasa process starting
+Restoring parameters from models/current/nlu\intent_classifier_tensorflow_embedding.ckpt
+b'hi'
+b'job'
+b'monastir'
+b'designer'
+Encountered an exception while running action 'action_job_description'. Bot will continue, but the actions events are lost. Make sure to fix the exception in your custom code.
+Rasa process starting
+Restoring parameters from models/current/nlu\intent_classifier_tensorflow_embedding.ckpt
+b'hi'
+b'job'
+b'monasitr'
+b'designer'
+Rasa process starting
+Restoring parameters from models/current/nlu\intent_classifier_tensorflow_embedding.ckpt
+b'HELLO'
+b'jobs'
+b'monastir'
+b'design'
+Encountered an exception while running action 'action_job_description'. Bot will continue, but the actions events are lost. Make sure to fix the exception in your custom code.
+b'hello'
+b'bye'
+b'thank you'
+b'wow'
+b'okay whatever'
+b'hmm'
+b'hello'
+b'i want a design job'
+b'monastir'
+Rasa process starting
+Restoring parameters from models/current/nlu\intent_classifier_tensorflow_embedding.ckpt
+b'hello'
+b'job offers'
+b'jobs'
+b'design'
+b'hello'
+b'hello'
+b'jobs'
+b'jobs'
+b'design'
+Rasa process starting
+Restoring parameters from models/current/nlu\intent_classifier_tensorflow_embedding.ckpt
+Rasa Core server is up and running on http://localhost:5005
+b'hello'
+b'jobs'
+b'jobs'
+b'design'
+b"I'm looking for a job as a designer"
+b'hello'
+b'jobs offers'
+b'monastir'
+b"I'm looking for a job as a designer"
+Failed to run custom action 'action_job_description'. Action server responded with a non 200 status code of 404. Make sure your action server properly runs actions and returns a 200 once the action is executed. Error: 404 Client Error: NOT FOUND for url: http://localhost:5055/webhook/
+Encountered an exception while running action 'action_job_description'. Bot will continue, but the actions events are lost. Make sure to fix the exception in your custom code.
+Rasa process starting
+Restoring parameters from models/current/nlu\intent_classifier_tensorflow_embedding.ckpt
+Rasa Core server is up and running on http://localhost:5005
+Rasa process starting
+Restoring parameters from models/current/nlu\intent_classifier_tensorflow_embedding.ckpt
+Rasa Core server is up and running on http://localhost:5005
+b'hello'
+b'jobs offers'
+b'jobs offers'
+b'design'
+b'hello'
+Rasa process starting
+Restoring parameters from models/current/nlu\intent_classifier_tensorflow_embedding.ckpt
+Rasa Core server is up and running on http://localhost:5005
+b'hello'
+Failed to run custom action 'action_job_description'. Couldn't connect to the server at 'http://localhost:5055/webhook/'. Is the server running? Error: HTTPConnectionPool(host='localhost', port=5055): Max retries exceeded with url: /webhook/ (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001B3B0678128>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+Encountered an exception while running action 'action_job_description'. Bot will continue, but the actions events are lost. Make sure to fix the exception in your custom code.
+b'hello'
+Failed to run custom action 'action_job_description'. Couldn't connect to the server at 'http://localhost:5055/webhook/'. Is the server running? Error: HTTPConnectionPool(host='localhost', port=5055): Max retries exceeded with url: /webhook/ (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001B3B0680630>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+Encountered an exception while running action 'action_job_description'. Bot will continue, but the actions events are lost. Make sure to fix the exception in your custom code.
+b'hello'
+Failed to run custom action 'action_job_description'. Action server responded with a non 200 status code of 404. Make sure your action server properly runs actions and returns a 200 once the action is executed. Error: 404 Client Error: NOT FOUND for url: http://localhost:5055/webhook/
+Encountered an exception while running action 'action_job_description'. Bot will continue, but the actions events are lost. Make sure to fix the exception in your custom code.
+b'hello'
+Failed to run custom action 'action_job_description'. Action server responded with a non 200 status code of 404. Make sure your action server properly runs actions and returns a 200 once the action is executed. Error: 404 Client Error: NOT FOUND for url: http://localhost:5055/webhook/
+Encountered an exception while running action 'action_job_description'. Bot will continue, but the actions events are lost. Make sure to fix the exception in your custom code.
+b'hello'
+Failed to run custom action 'action_job_description'. Action server responded with a non 200 status code of 404. Make sure your action server properly runs actions and returns a 200 once the action is executed. Error: 404 Client Error: NOT FOUND for url: http://localhost:5055/webhook/
+Encountered an exception while running action 'action_job_description'. Bot will continue, but the actions events are lost. Make sure to fix the exception in your custom code.
+b'hello'
+Failed to run custom action 'action_job_description'. Action server responded with a non 200 status code of 404. Make sure your action server properly runs actions and returns a 200 once the action is executed. Error: 404 Client Error: NOT FOUND for url: http://localhost:5055/webhook/
+Encountered an exception while running action 'action_job_description'. Bot will continue, but the actions events are lost. Make sure to fix the exception in your custom code.
+b'helo'
+b'hello'
+Rasa process starting
+Restoring parameters from models/current/nlu\intent_classifier_tensorflow_embedding.ckpt
+Rasa Core server is up and running on http://localhost:5005
+b'hello'
+Failed to run custom action 'action_job_description'. Action server responded with a non 200 status code of 404. Make sure your action server properly runs actions and returns a 200 once the action is executed. Error: 404 Client Error: NOT FOUND for url: http://localhost:5055/webhook/
+Encountered an exception while running action 'action_job_description'. Bot will continue, but the actions events are lost. Make sure to fix the exception in your custom code.
+b'hello'
+Failed to run custom action 'action_job_description'. Action server responded with a non 200 status code of 404. Make sure your action server properly runs actions and returns a 200 once the action is executed. Error: 404 Client Error: NOT FOUND for url: http://localhost:5055/webhook/
+Encountered an exception while running action 'action_job_description'. Bot will continue, but the actions events are lost. Make sure to fix the exception in your custom code.
+b'hello'
+Failed to run custom action 'action_job_description'. Action server responded with a non 200 status code of 404. Make sure your action server properly runs actions and returns a 200 once the action is executed. Error: 404 Client Error: NOT FOUND for url: http://localhost:5055/webhook/
+Encountered an exception while running action 'action_job_description'. Bot will continue, but the actions events are lost. Make sure to fix the exception in your custom code.
+b'hello'
+Failed to run custom action 'action_job_description'. Action server responded with a non 200 status code of 404. Make sure your action server properly runs actions and returns a 200 once the action is executed. Error: 404 Client Error: NOT FOUND for url: http://localhost:5055/webhook/
+Encountered an exception while running action 'action_job_description'. Bot will continue, but the actions events are lost. Make sure to fix the exception in your custom code.
+b'hello'
+Failed to run custom action 'action_job_description'. Action server responded with a non 200 status code of 404. Make sure your action server properly runs actions and returns a 200 once the action is executed. Error: 404 Client Error: NOT FOUND for url: http://localhost:5055/webhook/
+Encountered an exception while running action 'action_job_description'. Bot will continue, but the actions events are lost. Make sure to fix the exception in your custom code.
+Rasa process starting
+Restoring parameters from models/current/nlu\intent_classifier_tensorflow_embedding.ckpt
+Rasa Core server is up and running on http://localhost:5005
+b'hello'
+Failed to run custom action 'action_job_description'. Action server responded with a non 200 status code of 404. Make sure your action server properly runs actions and returns a 200 once the action is executed. Error: 404 Client Error: NOT FOUND for url: http://localhost:5055/webhook/
+Encountered an exception while running action 'action_job_description'. Bot will continue, but the actions events are lost. Make sure to fix the exception in your custom code.
+b'hello'
+Failed to run custom action 'action_job_description'. Action server responded with a non 200 status code of 404. Make sure your action server properly runs actions and returns a 200 once the action is executed. Error: 404 Client Error: NOT FOUND for url: http://localhost:5055/webhook/
+Encountered an exception while running action 'action_job_description'. Bot will continue, but the actions events are lost. Make sure to fix the exception in your custom code.
+b'hello'
+Failed to run custom action 'action_job_description'. Action server responded with a non 200 status code of 404. Make sure your action server properly runs actions and returns a 200 once the action is executed. Error: 404 Client Error: NOT FOUND for url: http://localhost:5055/webhook/
+Encountered an exception while running action 'action_job_description'. Bot will continue, but the actions events are lost. Make sure to fix the exception in your custom code.
+b'hello'
+Failed to run custom action 'action_job_description'. Action server responded with a non 200 status code of 404. Make sure your action server properly runs actions and returns a 200 once the action is executed. Error: 404 Client Error: NOT FOUND for url: http://localhost:5055/webhook/
+Encountered an exception while running action 'action_job_description'. Bot will continue, but the actions events are lost. Make sure to fix the exception in your custom code.
+b'hello'
+Failed to run custom action 'action_job_description'. Action server responded with a non 200 status code of 404. Make sure your action server properly runs actions and returns a 200 once the action is executed. Error: 404 Client Error: NOT FOUND for url: http://localhost:5055/webhook/
+Encountered an exception while running action 'action_job_description'. Bot will continue, but the actions events are lost. Make sure to fix the exception in your custom code.
+b'hello'
+Rasa process starting
+Restoring parameters from models/current/nlu\intent_classifier_tensorflow_embedding.ckpt
+Rasa process starting
+Restoring parameters from models/current/nlu\intent_classifier_tensorflow_embedding.ckpt
+Rasa Core server is up and running on http://localhost:5005
+b'hello'
+Failed to run custom action 'action_job_description'. Action server responded with a non 200 status code of 404. Make sure your action server properly runs actions and returns a 200 once the action is executed. Error: 404 Client Error: NOT FOUND for url: http://localhost:5055/webhook/
+Encountered an exception while running action 'action_job_description'. Bot will continue, but the actions events are lost. Make sure to fix the exception in your custom code.
+b'hello'
+Failed to run custom action 'action_job_description'. Action server responded with a non 200 status code of 404. Make sure your action server properly runs actions and returns a 200 once the action is executed. Error: 404 Client Error: NOT FOUND for url: http://localhost:5055/webhook/
+Encountered an exception while running action 'action_job_description'. Bot will continue, but the actions events are lost. Make sure to fix the exception in your custom code.
+Rasa process starting
+Restoring parameters from models\current\default\nlu\intent_classifier_tensorflow_embedding.ckpt
+Rasa Core server is up and running on http://localhost:5005
+Rasa process starting
+Restoring parameters from models\current\default\nlu\intent_classifier_tensorflow_embedding.ckpt
+Rasa Core server is up and running on http://localhost:5005
+Rasa process starting
+Restoring parameters from models\current\default\nlu\intent_classifier_tensorflow_embedding.ckpt
+Rasa Core server is up and running on http://localhost:5005

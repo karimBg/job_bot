@@ -1,0 +1,529 @@
+{
+  "rasa_nlu_data": {
+    "common_examples": [
+      {
+        "intent": "greet",
+        "text": "Hello"
+      },
+      {
+        "intent": "goodbye",
+        "text": "goodbye"
+      },
+      {
+        "intent": "inform_job",
+        "entities": [
+          {
+            "start": 27,
+            "end": 35,
+            "value": "designer",
+            "entity": "job_title"
+          }
+        ],
+        "text": "I'm looking for a job as a designer"
+      },
+      {
+        "intent": "inform_job",
+        "entities": [
+          {
+            "start": 27,
+            "end": 36,
+            "value": "Developer",
+            "entity": "job_title"
+          }
+        ],
+        "text": "I'm looking for a job as a Developer"
+      },
+      {
+        "intent": "goodbye",
+        "text": "see ya"
+      },
+      {
+        "intent": "greet",
+        "text": "Hi"
+      },
+      {
+        "intent": "greet",
+        "text": "Hi Bot"
+      },
+      {
+        "intent": "goodbye",
+        "text": "Bye"
+      },
+      {
+        "intent": "inform_job",
+        "text": "can you employ me "
+      },
+      {
+        "intent": "inform_job",
+        "text": "i'm searching for a job "
+      },
+      {
+        "intent": "inform_job",
+        "entities": [
+          {
+            "start": 20,
+            "end": 28,
+            "value": "Designer",
+            "entity": "job_title"
+          }
+        ],
+        "text": "I want to work as a Designer"
+      },
+      {
+        "intent": "inform_job",
+        "text": "I'm looking for a job"
+      },
+      {
+        "intent": "inform_job",
+        "text": "I'm looking for a new job"
+      },
+      {
+        "intent": "inform_job",
+        "text": "any jobs offers"
+      },
+      {
+        "intent": "inform_job",
+        "text": "i wanna work for you"
+      },
+      {
+        "intent": "inform_job",
+        "text": "i want to work for you"
+      },
+      {
+        "intent": "inform_job",
+        "text": "what are the jobs in your firm"
+      },
+      {
+        "intent": "acquaintance",
+        "text": "tell me about your personality"
+      },
+      {
+        "intent": "acquaintance",
+        "text": "why are you here"
+      },
+      {
+        "intent": "acquaintance",
+        "text": "talk about yourself"
+      },
+      {
+        "intent": "acquaintance",
+        "text": "tell me some stuff about you"
+      },
+      {
+        "intent": "acquaintance",
+        "text": "talk some stuff about yourself"
+      },
+      {
+        "intent": "acquaintance",
+        "text": "I want to know you better"
+      },
+      {
+        "intent": "acquaintance",
+        "text": "I want to know more about you"
+      },
+      {
+        "intent": "acquaintance",
+        "text": "who are you"
+      },
+      {
+        "intent": "acquaintance",
+        "text": "tell me about yourself"
+      },
+      {
+        "intent": "acquaintance",
+        "text": "tell me about you"
+      },
+      {
+        "intent": "acquaintance",
+        "text": "about yourself"
+      },
+      {
+        "intent": "acquaintance",
+        "text": "describe yourself"
+      },
+      {
+        "intent": "acquaintance",
+        "text": "introduce yourself"
+      },
+      {
+        "intent": "acquaintance",
+        "text": "say about you"
+      },
+      {
+        "intent": "acquaintance",
+        "text": "what are you"
+      },
+      {
+        "intent": "acquaintance",
+        "text": "define yourself"
+      },
+      {
+        "intent": "acquaintance",
+        "text": "what is your personality"
+      },
+      {
+        "intent": "acquaintance",
+        "text": "all about you"
+      },
+      {
+        "intent": "acquaintance",
+        "text": "what are you upto?"
+      },
+      {
+        "intent": "acquaintance",
+        "text": "who the hell are you?"
+      },
+      {
+        "intent": "acquaintance",
+        "text": "what can you do for me?"
+      },
+      {
+        "intent": "greet",
+        "text": "howdy"
+      },
+      {
+        "intent": "greet",
+        "text": "hey there"
+      },
+      {
+        "intent": "greet",
+        "text": "hey"
+      },
+      {
+        "intent": "greet",
+        "text": "greetings"
+      },
+      {
+        "intent": "greet",
+        "text": "I greet you"
+      },
+      {
+        "intent": "greet",
+        "text": "hi there"
+      },
+      {
+        "intent": "greet",
+        "text": "hello there"
+      },
+      {
+        "intent": "greet",
+        "text": "lovely day isn't it"
+      },
+      {
+        "intent": "greet",
+        "text": "hello again"
+      },
+      {
+        "intent": "greet",
+        "text": "just going to say hi"
+      },
+      {
+        "intent": "greet",
+        "text": "hi there"
+      },
+      {
+        "intent": "greet",
+        "text": "a good day"
+      },
+      {
+        "intent": "greet",
+        "text": "afternoon"
+      },
+      {
+        "intent": "greet",
+        "text": "hello hi"
+      },
+      {
+        "intent": "greet",
+        "text": "heya"
+      },
+      {
+        "intent": "greet",
+        "text": "hey"
+      },
+      {
+        "intent": "greet",
+        "text": "hi"
+      },
+      {
+        "intent": "greet",
+        "text": "hi"
+      },
+      {
+        "intent": "greet",
+        "text": "Hello"
+      },
+      {
+        "intent": "greet",
+        "text": "hey"
+      },
+      {
+        "intent": "greet",
+        "text": "hey man"
+      },
+      {
+        "intent": "greet",
+        "text": "hey there"
+      },
+      {
+        "intent": "greet",
+        "text": "hey buddy"
+      },
+      {
+        "intent": "greet",
+        "text": "yo man"
+      },
+      {
+        "intent": "greet",
+        "text": "hola"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "how is your morning so far"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "how are you getting on"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "how's your day going"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "how are you?"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "is everything all right"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "how are you doing?"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "how are the things going"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "are you alright"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "are you okay?"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "how are you feeling"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "how are you going?"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "is everything okay"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "how are you today?"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "how do you do?"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "how do you feel?"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "how have you been?"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "how is it going?"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "how is your day"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "how is your day going"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "how is your evening"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "how was your day"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "are you having a good day"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "hope your day is going well"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "hope you re having a pleasant evening"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "how's life?"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "I'm fine and you"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "how is your life"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "how has your day been"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "how is your morning going"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "how has your day been going"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "how about you?"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "how is your day being"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "how is your day going on"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "how your day is going"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "what was your day like"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "what about your day"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "how's your day"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "how are you doing this morning"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "how do you do?"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "how are you"
+      },
+      {
+        "intent": "how_are_you",
+        "text": "how are you"
+      },
+      {
+        "intent": "nice_to_meet_you",
+        "text": "nice to meet you"
+      },
+      {
+        "intent": "nice_to_meet_you",
+        "text": "it was nice meeting you"
+      },
+      {
+        "intent": "inform_job",
+        "entities": [
+          {
+            "start": 4,
+            "end": 20,
+            "value": "mobile developer",
+            "entity": "job_title"
+          }
+        ],
+        "text": "any mobile developer positions "
+      },
+      {
+        "intent": "inform_job",
+        "text": "what are the available positions at your firm"
+      },
+      {
+        "intent": "inform_internship",
+        "text": "i'm looking for internship opportunity at your firm"
+      },
+      {
+        "intent": "inform_internship",
+        "entities": [
+          {
+            "start": 9,
+            "end": 15,
+            "value": "master",
+            "entity": "degree"
+          }
+        ],
+        "text": "i have a master degree and looking for internship"
+      },
+      {
+        "intent": "inform_internship",
+        "text": "what are the available project for internship"
+      },
+      {
+        "intent": "inform_contact",
+        "text": "how can i call you"
+      },
+      {
+        "intent": "inform_contact",
+        "entities": [
+          {
+            "start": 13,
+            "end": 18,
+            "value": "email",
+            "entity": "contact"
+          }
+        ],
+        "text": "what is your email"
+      },
+      {
+        "intent": "inform_contact",
+        "entities": [
+          {
+            "start": 13,
+            "end": 19,
+            "value": "phone ",
+            "entity": "contact"
+          }
+        ],
+        "text": "what is your phone number"
+      },
+      {
+        "intent": "inform_industies",
+        "text": "what is your type of work"
+      },
+      {
+        "intent": "inform_industies",
+        "text": "tell me about you solution"
+      }
+    ],
+    "regex_features": [],
+    "lookup_tables": [],
+    "entity_synonyms": []
+  }
+}

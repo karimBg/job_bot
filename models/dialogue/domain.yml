@@ -1,0 +1,89 @@
+%YAML 1.1
+---
+actions:
+- action_job
+- utter_location
+- utter_ask_job_title
+- utter_goodbye
+- utter_greet
+- utter_acquaintance
+- utter_how_are_you
+- utter_nice_to_meet_you
+- action_contact
+- action_location
+- action_internship
+- utter_ask_contact
+config:
+  store_entities_as_slots: true
+entities:
+- job_title
+- degree
+- contact
+- location
+forms: []
+intents:
+- inform_job:
+    use_entities: true
+- greet:
+    use_entities: true
+- how_are_you:
+    use_entities: true
+- nice_to_meet_you:
+    use_entities: true
+- inform_internship:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- inform_contact:
+    use_entities: true
+- inform_location:
+    use_entities: true
+- acquaintance:
+    use_entities: true
+slots:
+  contact:
+    auto_fill: true
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  degree:
+    auto_fill: true
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  job_title:
+    auto_fill: true
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  location:
+    auto_fill: true
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+templates:
+  nice_to_meet_you:
+  - text: It's nice meeting you, too.
+  - text: Likewise. I'm looking forward to helping you out.
+  - text: Nice meeting you, as well.
+  - text: The pleasure is mine.
+  utter_ask_job_title:
+  - text: What is your domain of expertise
+  - text: What kind of job are you looking for?
+  - text: What is the Title of the job your looking for?
+  - text: What type of job do you want?
+  utter_ask_location:
+  - text: In what location?
+  utter_goodbye:
+  - text: Talk to you later.
+  - text: Bye bye :(
+  utter_greet:
+  - text: Hello! How can I help?
+  - text: Hi there, friend!
+  - text: Hi!
+  - text: Hey!
+  - text: Hey there!
+  - text: Good day!
+  - text: Hello!
+  - text: Greetings!
+  utter_how_are_you:
+  - text: Doing great, thanks!
+  - text: I'm doing very well. Thanks!
+  - text: Feeling wonderful!
+  - text: Wonderful! Thanks for asking.

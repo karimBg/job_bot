@@ -1,0 +1,68 @@
+actions: 
+  - action_job
+  - utter_location
+  - utter_ask_job_title
+  - utter_goodbye
+  - utter_greet
+  - utter_acquaintance
+  - utter_how_are_you
+  - utter_nice_to_meet_you
+  - action_contact
+  - action_location
+  - action_internship
+  - utter_ask_contact
+entities: 
+  - job_title
+  - degree
+  - contact
+  - location
+intents: 
+  - inform_job
+  - greet
+  - how_are_you
+  - nice_to_meet_you
+  - inform_internship
+  - inform_job
+  - goodbye
+  - inform_contact
+  - inform_location
+  - acquaintance
+slots: 
+  contact: 
+    type: text
+  degree: 
+    type: text
+  job_title: 
+    type: text
+  location: 
+    type: text
+templates: 
+  utter_ask_job_title: 
+    - "What is your domain of expertise"
+    - "What kind of job are you looking for?"
+    - "What is the Title of the job your looking for?"
+    - "What type of job do you want?"
+  utter_ask_location: 
+    - "In what location?"
+  utter_goodbye: 
+    - "Talk to you later."
+    - "Bye bye :("
+  utter_greet: 
+    - "Hello! How can I help?"
+    - "Hi there, friend!"
+    - "Hi!"
+    - "Hey!"
+    - "Hey there!"
+    - "Good day!"
+    - "Hello!"
+    - "Greetings!"
+  utter_how_are_you:
+    - "Doing great, thanks!"
+    - "I'm doing very well. Thanks!"
+    - "Feeling wonderful!"
+    - "Wonderful! Thanks for asking."
+  nice_to_meet_you:
+    - "It's nice meeting you, too."
+    - "Likewise. I'm looking forward to helping you out."
+    - "Nice meeting you, as well."
+    - "The pleasure is mine."
