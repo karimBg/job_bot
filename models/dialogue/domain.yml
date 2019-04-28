@@ -13,14 +13,20 @@ actions:
 - action_location
 - action_internship
 - utter_ask_contact
+- action_ask_details
+- details_job_action
+- utter_slots_values
+- action_show_details
+- utter_ask_details
 config:
   store_entities_as_slots: true
 entities:
 - job_title
 - degree
 - contact
-- location
-forms: []
+- JobOptions
+forms:
+- jobs_form
 intents:
 - inform_job:
     use_entities: true
@@ -40,7 +46,13 @@ intents:
     use_entities: true
 - acquaintance:
     use_entities: true
+- utter_details:
+    use_entities: true
 slots:
+  JobOptions:
+    auto_fill: true
+    initial_value: None
+    type: rasa_core.slots.TextSlot
   contact:
     auto_fill: true
     initial_value: null
@@ -57,12 +69,23 @@ slots:
     auto_fill: true
     initial_value: null
     type: rasa_core.slots.TextSlot
+  requested_slot:
+    auto_fill: true
+    initial_value: null
+    type: rasa_core.slots.UnfeaturizedSlot
 templates:
   nice_to_meet_you:
   - text: It's nice meeting you, too.
   - text: Likewise. I'm looking forward to helping you out.
   - text: Nice meeting you, as well.
   - text: The pleasure is mine.
+  utter_ask_details:
+  - buttons:
+    - payload: '/choose{"JobOptions": "description"}'
+      title: description
+    - payload: '/choose{"JobOptions": "mission"}'
+      title: mission
+    text: what details would you like to know?
   utter_ask_job_title:
   - text: What is your domain of expertise
   - text: What kind of job are you looking for?
@@ -87,3 +110,5 @@ templates:
   - text: I'm doing very well. Thanks!
   - text: Feeling wonderful!
   - text: Wonderful! Thanks for asking.
+  utter_slots_values:
+  - text: "what is kind of job you are looking for:\n - job_title: {job_title}\n"

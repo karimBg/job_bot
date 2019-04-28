@@ -1,16 +1,12 @@
 import logging
-import yaml
-import rasa_core
-
-from rasa_core.utils import EndpointConfig
 from rasa_core.agent import Agent
 from rasa_core.interpreter import RasaNLUInterpreter
-from rasa_core.run import serve_application
-from rasa_core import config
 from rasa_core.channels.channel import CollectingOutputChannel
 from flask import json
 from klein import Klein
-
+from rasa_core.utils import EndpointConfig
+from rasa_core.run import serve_application
+from rasa_core import config
 logger = logging.getLogger(__name__)
 
 
@@ -34,26 +30,22 @@ def request_parameters(request):
 class Server:
     app = Klein()
 
-    def __init__(self, model_directory, interpreter, endpoints,
-               tracker_store=None):
+    def __init__(self, model_directory, interpreter ,_endpoints):
         self.model_directory = model_directory
         self.interpreter = interpreter
-
-        self.agent = self._create_agent(model_directory, interpreter, action_endpoint)
-
-        return Agent.load(core_model,
-                          interpreter=interpreter,
-                          generator=endpoints.nlg,
-                          tracker_store=tracker_store,
-                          action_endpoint=endpoints.action)
-
-
+        _endpoints = EndpointConfig(url="http://localhost:5055/webhook")
+        _interpreter = RasaNLUInterpreter("./models/current/default/nlu")
+        _core_model = "./models/dialogue"
+        self.agent = self._create_agent(model_directory, _interpreter,_endpoints)
 
     @staticmethod
-    def _create_agent(model_directory, interpreter, action_endpoint):
+    def _create_agent(model_directory, interpreter , action_endpoint):
         """Creates a Rasa Agent which runs when the server is started"""
+        _endpoints = EndpointConfig(url="http://localhost:5055/webhook")
+        _interpreter = RasaNLUInterpreter("./models/current/default/nlu")
+        _core_model = "./models/dialogue"
         try:
-            return Agent.load(model_directory, interpreter, action_endpoint)
+            return Agent.load(_core_model, _interpreter,_endpoints)
         except Exception as e:
             logger.warn("Failed to load any agent model. Running "
                         "Rasa Core server with out loaded model now. {}"
@@ -69,8 +61,8 @@ class Server:
     @app.route('/api/v1/<sender_id>/parse', methods=['GET', 'POST'])
     def parse(self, request, sender_id):
         request.setHeader('Content-Type', 'application/json')
+        request.setHeader('Access-Control-Allow-Origin', '*')        
         request_params = request_parameters(request)
-
         if 'query' in request_params:
             message = request_params.pop('query')
         elif 'q' in request_params:
@@ -113,5 +105,6 @@ class Server:
 
 
 if __name__ == "__main__":
-    server = Server("models/dialogue", RasaNLUInterpreter("models/current/nlu"),EndpointConfig(url="http://localhost:5055/webhook"))
+    _endpoints = EndpointConfig(url="http://localhost:5055/webhook")
+    server = Server("./models/dialogue", RasaNLUInterpreter("models/current/default/nlu"),_endpoints)
     server.app.run("0.0.0.0", 8081)

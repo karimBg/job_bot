@@ -11,22 +11,29 @@ actions:
   - action_location
   - action_internship
   - utter_ask_contact
+  - action_ask_details
+  - details_job_action
+  - utter_slots_values
+  - action_show_details
+  - utter_ask_details
+forms:
+    - jobs_form
 entities: 
   - job_title
   - degree
   - contact
-  - location
+  - JobOptions
 intents: 
   - inform_job
   - greet
   - how_are_you
   - nice_to_meet_you
   - inform_internship
-  - inform_job
   - goodbye
   - inform_contact
   - inform_location
   - acquaintance
+  - utter_details
 slots: 
   contact: 
     type: text
@@ -36,6 +43,11 @@ slots:
     type: text
   location: 
     type: text
+  JobOptions:
+    type: text
+    initial_value: "None"
+  requested_slot:
+    type: unfeaturized
 templates: 
   utter_ask_job_title: 
     - "What is your domain of expertise"
@@ -66,3 +78,13 @@ templates:
     - "Likewise. I'm looking forward to helping you out."
     - "Nice meeting you, as well."
     - "The pleasure is mine."
+  utter_ask_details:
+  - text: "what details would you like to know?"
+    buttons:
+    - title: "description"
+      payload: '/choose{"JobOptions": "description"}'
+    - title: "mission"
+      payload: '/choose{"JobOptions": "mission"}'
+  utter_slots_values:
+      - text: "what is kind of job you are looking for:\n
+          - job_title: {job_title}\n"

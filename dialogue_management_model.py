@@ -8,6 +8,7 @@ import rasa_core
 from rasa_core.agent import Agent
 from rasa_core.policies.keras_policy import KerasPolicy
 from rasa_core.policies.memoization import MemoizationPolicy
+from rasa_core.policies.form_policy import FormPolicy
 from rasa_core.interpreter import RasaNLUInterpreter
 from rasa_core.utils import EndpointConfig
 from rasa_core.run import serve_application
@@ -25,6 +26,7 @@ def train_dialogue(
     agent = Agent(
         domain_file,
         policies=[
+            FormPolicy(),
             MemoizationPolicy(),
             KerasPolicy(max_history=3, epochs=500, batch_size=50),
         ],
@@ -49,5 +51,5 @@ def run_job_bot(serve_forever=True):
 
 if __name__ == "__main__":
     train_dialogue()
-    run_job_bot()
+    #run_job_bot()
 

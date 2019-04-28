@@ -9,10 +9,12 @@
     "intent_inform_job",
     "intent_inform_location",
     "intent_nice_to_meet_you",
+    "intent_utter_details",
     "entity_job_title",
     "entity_degree",
     "entity_contact",
-    "entity_location",
+    "entity_JobOptions",
+    "slot_JobOptions_0",
     "slot_contact_0",
     "slot_degree_0",
     "slot_job_title_0",
@@ -35,6 +37,13 @@
     "prev_action_contact",
     "prev_action_location",
     "prev_action_internship",
-    "prev_utter_ask_contact"
+    "prev_utter_ask_contact",
+    "prev_action_ask_details",
+    "prev_details_job_action",
+    "prev_utter_slots_values",
+    "prev_action_show_details",
+    "prev_utter_ask_details",
+    "prev_jobs_form",
+    "active_form_jobs_form"
   ]
 }

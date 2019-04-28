@@ -37,5 +37,5 @@ def run_job_online(
 
 if __name__ == "__main__":
     logging.basicConfig(level="INFO")
-    nlu_interpreter = RasaNLUInterpreter("./models/current/nlu")
+    nlu_interpreter = RasaNLUInterpreter("./models/current/default/nlu")
     run_job_online(nlu_interpreter)

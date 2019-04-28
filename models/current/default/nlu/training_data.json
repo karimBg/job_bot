@@ -271,6 +271,10 @@
       },
       {
         "intent": "greet",
+        "text": "oka"
+      },
+      {
+        "intent": "greet",
         "text": "yo man"
       },
       {
@@ -471,18 +475,6 @@
       },
       {
         "intent": "inform_internship",
-        "entities": [
-          {
-            "start": 9,
-            "end": 15,
-            "value": "master",
-            "entity": "degree"
-          }
-        ],
-        "text": "i have a master degree and looking for internship"
-      },
-      {
-        "intent": "inform_internship",
         "text": "what are the available project for internship"
       },
       {
@@ -520,6 +512,146 @@
       {
         "intent": "inform_industies",
         "text": "tell me about you solution"
+      },
+      {
+        "intent": "inform_job",
+        "entities": [
+          {
+            "start": 23,
+            "end": 25,
+            "value": "IT",
+            "entity": "department"
+          }
+        ],
+        "text": "I'm looking for job in IT "
+      },
+      {
+        "intent": "inform_job",
+        "entities": [
+          {
+            "start": 25,
+            "end": 35,
+            "value": "Accounting",
+            "entity": "department"
+          }
+        ],
+        "text": "i'm looking for a job in Accounting"
+      },
+      {
+        "intent": "inform_job",
+        "text": "any jobs offeres available "
+      },
+      {
+        "intent": "inform_job",
+        "text": "I'm graduated and searching for a job"
+      },
+      {
+        "intent": "inform_job",
+        "entities": [
+          {
+            "start": 0,
+            "end": 17,
+            "value": "mobile developper",
+            "entity": "job_title"
+          }
+        ],
+        "text": "mobile developper"
+      },
+      {
+        "intent": "inform_job",
+        "entities": [
+          {
+            "start": 0,
+            "end": 8,
+            "value": "designer",
+            "entity": "job_title"
+          }
+        ],
+        "text": "designer"
+      },
+      {
+        "intent": "inform_job",
+        "entities": [
+          {
+            "start": 0,
+            "end": 13,
+            "value": "web developer",
+            "entity": "job_title"
+          }
+        ],
+        "text": "web developer"
+      },
+      {
+        "intent": "inform_job",
+        "entities": [
+          {
+            "start": 0,
+            "end": 18,
+            "value": "software developer",
+            "entity": "job_title"
+          }
+        ],
+        "text": "software developer"
+      },
+      {
+        "intent": "inform_job",
+        "entities": [
+          {
+            "start": 0,
+            "end": 14,
+            "value": "web integrator",
+            "entity": "job_title"
+          }
+        ],
+        "text": "web integrator"
+      },
+      {
+        "intent": "inform_job",
+        "entities": [
+          {
+            "start": 0,
+            "end": 12,
+            "value": "web designer",
+            "entity": "job_title"
+          }
+        ],
+        "text": "web designer"
+      },
+      {
+        "intent": "utter_details",
+        "entities": [
+          {
+            "start": 0,
+            "end": 11,
+            "value": "description",
+            "entity": "JobOptions"
+          }
+        ],
+        "text": "description"
+      },
+      {
+        "intent": "utter_details",
+        "entities": [
+          {
+            "start": 0,
+            "end": 7,
+            "value": "mission",
+            "entity": "JobOptions"
+          }
+        ],
+        "text": "mission"
+      },
+      {
+        "intent": "utter_details",
+        "entities": [
+          {
+            "start": 0,
+            "end": 4,
+            "value": "date",
+            "entity": "JobOptions"
+          }
+        ],
+        "text": "date"
       }
     ],
     "regex_features": [],
