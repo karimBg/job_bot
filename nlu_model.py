@@ -13,7 +13,7 @@ def train_nlu(data, configs, model_dir):
 
 def run_nlu():
     interpreter = Interpreter.load("./models/current/default/nlu")
-    print(interpreter.parse(u"mobile developer"))
+    print(interpreter.parse(u" description"))
 
 
 if __name__ == "__main__":

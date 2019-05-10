@@ -1,90 +1,94 @@
-actions: 
-  - action_job
-  - utter_location
-  - utter_ask_job_title
-  - utter_goodbye
-  - utter_greet
-  - utter_acquaintance
-  - utter_how_are_you
-  - utter_nice_to_meet_you
-  - action_contact
-  - action_location
-  - action_internship
-  - utter_ask_contact
-  - action_ask_details
-  - details_job_action
-  - utter_slots_values
-  - action_show_details
-  - utter_ask_details
+%YAML 1.1
+---
+actions:
+- action_internship
+- utter_location
+- action_setTitle_none
+- utter_slots_values
+- utter_how_are_you
+- utter_nice_to_meet_you
+- action_acquaintance
+- action_location
+- utter_ask_details
+- utter_greet
+- action_ask_details
+- utter_goodbye
+- action_show_details
+- utter_ask_detail
+- action_job
+- action_contact
+- utter_ask_contact
+- details_job_action
+entities:
+- degree
+- job_title
+- JobOptions
+- contact
 forms:
-    - jobs_form
-entities: 
-  - job_title
-  - degree
-  - contact
-  - JobOptions
-intents: 
-  - inform_job
-  - greet
-  - how_are_you
-  - nice_to_meet_you
-  - inform_internship
-  - goodbye
-  - inform_contact
-  - inform_location
-  - acquaintance
-  - utter_details
-slots: 
-  contact: 
-    type: text
-  degree: 
-    type: text
-  job_title: 
-    type: text
-  location: 
-    type: text
+- jobs_form
+intents:
+- ask_detail
+- inform_job
+- greet
+- how_are_you
+- nice_to_meet_you
+- inform_internship
+- goodbye
+- inform_contact
+- inform_location
+- acquaintance
+slots:
   JobOptions:
+    initial_value: None
     type: text
-    initial_value: "None"
+  contact:
+    type: text
+  degree:
+    type: text
+  job_title:
+    type: text
+  location:
+    type: text
   requested_slot:
     type: unfeaturized
-templates: 
-  utter_ask_job_title: 
-    - "What is your domain of expertise"
-    - "What kind of job are you looking for?"
-    - "What is the Title of the job your looking for?"
-    - "What type of job do you want?"
-  utter_ask_location: 
-    - "In what location?"
-  utter_goodbye: 
-    - "Talk to you later."
-    - "Bye bye :("
-  utter_greet: 
-    - "Hello! How can I help?"
-    - "Hi there, friend!"
-    - "Hi!"
-    - "Hey!"
-    - "Hey there!"
-    - "Good day!"
-    - "Hello!"
-    - "Greetings!"
-  utter_how_are_you:
-    - "Doing great, thanks!"
-    - "I'm doing very well. Thanks!"
-    - "Feeling wonderful!"
-    - "Wonderful! Thanks for asking."
+templates:
   nice_to_meet_you:
-    - "It's nice meeting you, too."
-    - "Likewise. I'm looking forward to helping you out."
-    - "Nice meeting you, as well."
-    - "The pleasure is mine."
+  - text: It's nice meeting you, too.
+  - text: Likewise. I'm looking forward to helping you out.
+  - text: Nice meeting you, as well.
+  - text: The pleasure is mine.
+  utter_ask_detail:
+  - text: 'learn more about about this offers example: description ,mission ...'
   utter_ask_details:
-  - text: "what details would you like to know?"
-    buttons:
-    - title: "description"
-      payload: '/choose{"JobOptions": "description"}'
-    - title: "mission"
-      payload: '/choose{"JobOptions": "mission"}'
+  - buttons:
+    - payload: '/JobOptions {"JobOptions": "description"}'
+      title: description
+    - payload: '/JobOptions {"JobOptions": "mission"}'
+      title: mission
+    text: what details would you like to know?
+  utter_ask_location:
+  - text: In what location?
+  utter_goodbye:
+  - text: Talk to you later.
+  - text: Bye bye :(
+  utter_greet:
+  - text: Hello! How can I help?
+  - text: Hi there, friend!
+  - text: Hi!
+  - text: Hey!
+  - text: Hey there!
+  - text: Good day!
+  - text: Hello!
+  - text: Greetings!
+  utter_how_are_you:
+  - text: Doing great, thanks!
+  - text: I'm doing very well. Thanks!
+  - text: Feeling wonderful!
+  - text: Wonderful! Thanks for asking.
   utter_slots_values:
-      - text: "what is kind of job you are looking for:\n
-          - job_title: {job_title}\n"
+  - text: "what is kind of job you are looking for:\n - job_title: {job_title}\n"
+  utter_nice_to_meet_you:
+  - text: It's nice meeting you, too.
+  - text: Likewise. I'm looking forward to helping you out.
+  - text: Nice meeting you, as well.
+  - text: The pleasure is mine.

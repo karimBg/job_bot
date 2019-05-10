@@ -618,7 +618,7 @@
         "text": "web designer"
       },
       {
-        "intent": "utter_details",
+        "intent": "ask_detail",
         "entities": [
           {
             "start": 0,
@@ -630,7 +630,7 @@
         "text": "description"
       },
       {
-        "intent": "utter_details",
+        "intent": "ask_detail",
         "entities": [
           {
             "start": 0,
@@ -642,7 +642,7 @@
         "text": "mission"
       },
       {
-        "intent": "utter_details",
+        "intent": "ask_detail",
         "entities": [
           {
             "start": 0,

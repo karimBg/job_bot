@@ -1,33 +1,36 @@
 %YAML 1.1
 ---
 actions:
-- action_job
+- action_internship
 - utter_location
-- utter_ask_job_title
-- utter_goodbye
-- utter_greet
-- utter_acquaintance
+- action_setTitle_none
+- utter_slots_values
 - utter_how_are_you
 - utter_nice_to_meet_you
-- action_contact
+- action_acquaintance
 - action_location
-- action_internship
-- utter_ask_contact
-- action_ask_details
-- details_job_action
-- utter_slots_values
-- action_show_details
 - utter_ask_details
+- utter_greet
+- action_ask_details
+- utter_goodbye
+- action_show_details
+- utter_ask_detail
+- action_job
+- action_contact
+- utter_ask_contact
+- details_job_action
 config:
   store_entities_as_slots: true
 entities:
-- job_title
 - degree
-- contact
+- job_title
 - JobOptions
+- contact
 forms:
 - jobs_form
 intents:
+- ask_detail:
+    use_entities: true
 - inform_job:
     use_entities: true
 - greet:
@@ -45,8 +48,6 @@ intents:
 - inform_location:
     use_entities: true
 - acquaintance:
-    use_entities: true
-- utter_details:
     use_entities: true
 slots:
   JobOptions:
@@ -79,18 +80,15 @@ templates:
   - text: Likewise. I'm looking forward to helping you out.
   - text: Nice meeting you, as well.
   - text: The pleasure is mine.
+  utter_ask_detail:
+  - text: 'learn more about about this offers example: description ,mission ...'
   utter_ask_details:
   - buttons:
-    - payload: '/choose{"JobOptions": "description"}'
+    - payload: '/JobOptions {"JobOptions": "description"}'
       title: description
-    - payload: '/choose{"JobOptions": "mission"}'
+    - payload: '/JobOptions {"JobOptions": "mission"}'
       title: mission
     text: what details would you like to know?
-  utter_ask_job_title:
-  - text: What is your domain of expertise
-  - text: What kind of job are you looking for?
-  - text: What is the Title of the job your looking for?
-  - text: What type of job do you want?
   utter_ask_location:
   - text: In what location?
   utter_goodbye:
@@ -110,5 +108,10 @@ templates:
   - text: I'm doing very well. Thanks!
   - text: Feeling wonderful!
   - text: Wonderful! Thanks for asking.
+  utter_nice_to_meet_you:
+  - text: It's nice meeting you, too.
+  - text: Likewise. I'm looking forward to helping you out.
+  - text: Nice meeting you, as well.
+  - text: The pleasure is mine.
   utter_slots_values:
   - text: "what is kind of job you are looking for:\n - job_title: {job_title}\n"
