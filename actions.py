@@ -25,7 +25,6 @@ class action_job(Action):
     def name(self):
         return "action_job"
     def run(self, dispatcher, tracker, domain):
-<<<<<<< HEAD
 
         job_title = tracker.get_slot("job_title")
         user_id = (tracker.current_state())["sender_id"]
@@ -35,12 +34,6 @@ class action_job(Action):
         for row in jobs:
             possible_jobs.append({"job_title": row[0]})
 
-=======
-        job_title = tracker.get_slot("job_title")
-        user_id = (tracker.current_state())["sender_id"]
-        #in possible_jobs get the titles of the jobs from the database of user_id ( entreprise id )
-        possible_jobs = [{"job_title" : "web developer"}, {"job_title": "web integrator"}, {"job_title": "software developer"}]
->>>>>>> 247edbb95678b765a9a423e75f2fa66249c21f73
         message = "those the available jobs offers we have"
         buttons = []
         for job in possible_jobs:
