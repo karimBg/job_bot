@@ -1,47 +1,57 @@
 {
   "action_fingerprints": {
     "action_listen": {
+      "slots": [
+        "JobOptions"
+      ]
+    },
+    "utter_how_are_you": {
       "slots": []
     },
-    "action_job": {
+    "jobs_form": {
+      "slots": [
+        "requested_slot",
+        "job_title"
+      ]
+    },
+    "action_deactivate_form": {
+      "slots": [
+        "job_title",
+        "requested_slot"
+      ]
+    },
+    "utter_goodbye": {
       "slots": []
     },
-    "utter_ask_job_title": {
-      "slots": []
-    },
-    "action_internship": {
+    "action_acquaintance": {
       "slots": []
     },
     "action_contact": {
       "slots": []
     },
-    "utter_acquaintance": {
-      "slots": []
-    },
-    "utter_how_are_you": {
+    "utter_greet": {
       "slots": []
     },
     "utter_nice_to_meet_you": {
       "slots": []
     },
-    "utter_greet": {
-      "slots": []
-    },
-    "utter_goodbye": {
+    "action_show_details": {
       "slots": []
     }
   },
   "python": "3.6.8",
   "max_histories": [
+    2,
     5,
     3
   ],
   "ensemble_name": "rasa_core.policies.ensemble.SimplePolicyEnsemble",
   "policy_names": [
+    "rasa_core.policies.form_policy.FormPolicy",
     "rasa_core.policies.memoization.MemoizationPolicy",
     "rasa_core.policies.keras_policy.KerasPolicy"
   ],
-  "trained_at": "20190422-150746",
+  "trained_at": "20190510-112350",
   "rasa_core": "0.13.4",
   "tensorflow": "1.12.0",
   "sklearn": "0.20.3"
