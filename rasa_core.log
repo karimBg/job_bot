@@ -12265,6 +12265,7 @@ There is a memorised next action '0'
 Predicted next action using policy_1_MemoizationPolicy
 Predicted next action 'action_listen' with prob 1.00.
 Action 'action_listen' ended with events '[]'
+<<<<<<< HEAD
 Rasa process starting
 Restoring parameters from ./models/current/default/nlu\intent_classifier_tensorflow_embedding.ckpt
 b'who are you'
@@ -12868,3 +12869,5 @@ There is no memorised next action
 Predicted next action using policy_2_KerasPolicy
 Predicted next action 'action_listen' with prob 0.99.
 Action 'action_listen' ended with events '[]'
+=======
+>>>>>>> 247edbb95678b765a9a423e75f2fa66249c21f73

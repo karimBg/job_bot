@@ -6,6 +6,7 @@ from rasa_core_sdk import Tracker
 from rasa_core_sdk.events import SlotSet
 from rasa_core_sdk.executor import CollectingDispatcher
 from rasa_core_sdk.forms import FormAction, REQUESTED_SLOT
+<<<<<<< HEAD
 
 import pyodbc
 
@@ -16,12 +17,15 @@ cnxn = pyodbc.connect(
     "Trusted_Connection=yes;"
 )
 cursor = cnxn.cursor()
+=======
+>>>>>>> 247edbb95678b765a9a423e75f2fa66249c21f73
 
 # jobs action
 class action_job(Action):
     def name(self):
         return "action_job"
     def run(self, dispatcher, tracker, domain):
+<<<<<<< HEAD
 
         job_title = tracker.get_slot("job_title")
         user_id = (tracker.current_state())["sender_id"]
@@ -31,6 +35,12 @@ class action_job(Action):
         for row in jobs:
             possible_jobs.append({"job_title": row[0]})
 
+=======
+        job_title = tracker.get_slot("job_title")
+        user_id = (tracker.current_state())["sender_id"]
+        #in possible_jobs get the titles of the jobs from the database of user_id ( entreprise id )
+        possible_jobs = [{"job_title" : "web developer"}, {"job_title": "web integrator"}, {"job_title": "software developer"}]
+>>>>>>> 247edbb95678b765a9a423e75f2fa66249c21f73
         message = "those the available jobs offers we have"
         buttons = []
         for job in possible_jobs:
@@ -102,6 +112,7 @@ class actionShowDetails(Action):
     def run(self, dispatcher, tracker, domain):
         job_title = tracker.get_slot("job_title")
         job_option = tracker.get_slot("JobOptions")  
+<<<<<<< HEAD
         user_id = (tracker.current_state())["sender_id"]
         #getting data from DB
         query = cursor.execute(f"SELECT {job_option.capitalize()} FROM jobs WHERE Title='{job_title}' AND IdUserDb='{user_id}'")
@@ -109,6 +120,11 @@ class actionShowDetails(Action):
             job_data = row[0]
         #put stuff from database here 
         dispatcher.utter_message(f"the {job_option} of {job_title} is {job_data}")
+=======
+        user_id = (tracker.current_state())["sender_id"]        
+        #put stuff from database here 
+        dispatcher.utter_message("get " + job_option+" of "+ job_title )
+>>>>>>> 247edbb95678b765a9a423e75f2fa66249c21f73
         return []
 
 class actionAcquaintance(Action):
