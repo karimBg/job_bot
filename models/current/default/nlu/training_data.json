@@ -652,6 +652,42 @@
           }
         ],
         "text": "date"
+      },
+      {
+        "intent": "ask_detail",
+        "entities": [
+          {
+            "start": 0,
+            "end": 16,
+            "value": "responsibilities",
+            "entity": "JobOptions"
+          }
+        ],
+        "text": "responsibilities"
+      },
+      {
+        "intent": "ask_detail",
+        "entities": [
+          {
+            "start": 0,
+            "end": 13,
+            "value": "qualification",
+            "entity": "JobOptions"
+          }
+        ],
+        "text": "qualification"
+      },
+      {
+        "intent": "ask_detail",
+        "entities": [
+          {
+            "start": 12,
+            "end": 33,
+            "value": "procedure",
+            "entity": "JobOptions"
+          }
+        ],
+        "text": "what is the application procedure"
       }
     ],
     "regex_features": [],

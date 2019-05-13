@@ -6,26 +6,25 @@ from rasa_core_sdk import Tracker
 from rasa_core_sdk.events import SlotSet
 from rasa_core_sdk.executor import CollectingDispatcher
 from rasa_core_sdk.forms import FormAction, REQUESTED_SLOT
-<<<<<<< HEAD
 
-import pyodbc
+# import pyodbc
 
-cnxn = pyodbc.connect(
-    "Driver={SQL Server Native Client 11.0};"
-    "Server=(localdb)\\MSSQLLocalDB;"
-    "Database=BackEndDb;"
-    "Trusted_Connection=yes;"
-)
-cursor = cnxn.cursor()
-=======
->>>>>>> 247edbb95678b765a9a423e75f2fa66249c21f73
+# cnxn = pyodbc.connect(
+#     "Driver={SQL Server Native Client 11.0};"
+#     "Server=(localdb)\\MSSQLLocalDB;"
+#     "Database=BackEndDb;"
+#     "Trusted_Connection=yes;"
+# )
+# cursor = cnxn.cursor()
+from repository.data_access import cursor
+
+from repository.job_data import get_job_data
 
 # jobs action
 class action_job(Action):
     def name(self):
         return "action_job"
     def run(self, dispatcher, tracker, domain):
-
         job_title = tracker.get_slot("job_title")
         user_id = (tracker.current_state())["sender_id"]
 
@@ -34,7 +33,7 @@ class action_job(Action):
         for row in jobs:
             possible_jobs.append({"job_title": row[0]})
 
-        message = "those the available jobs offers we have"
+        message = "These are the available job offers that we have right now."
         buttons = []
         for job in possible_jobs:
             title = (job["job_title"])
@@ -54,7 +53,7 @@ class jobs_form(FormAction):
         return ["job_title"]
     def submit(self, dispatcher, tracker, domain):
         job_title = tracker.get_slot("job_title")
-       	dispatcher.utter_template('utter_submit', tracker)
+        dispatcher.utter_template('utter_submit', tracker)
         return []
 
 
@@ -66,10 +65,10 @@ class InternshipAction(Action):
         user_id = (tracker.current_state())["sender_id"]
         internship_title ="islem"
         # get all internship titles
-        possible_internship = [{"internship_title" : "web developer"}, {"internship_title": "web integrator"}, {"internship_title": "software developer"}]
+        possible_internships = [{"internship_title" : "web developer"}, {"internship_title": "web integrator"}, {"internship_title": "software developer"}]
         message = "those the available internship offers we have"
         buttons = []
-        for job in possible_jobs:
+        for job in possible_internships:
             title = (job["internship_title"])
             payload = ('/slot{\"internship_title\": '+ job["internship_title"] + '}')
             buttons.append({ "title": title, "payload": payload })
@@ -87,7 +86,7 @@ class jobs_form(FormAction):
         return ["job_title"]
     def submit(self, dispatcher, tracker, domain):
         job_title = tracker.get_slot("job_title")
-       	dispatcher.utter_template('utter_submit', tracker)
+        dispatcher.utter_template('utter_submit', tracker)
         return []
 
 class Actioncontact(Action):
@@ -99,25 +98,20 @@ class Actioncontact(Action):
         dispatcher.utter_message("hello")
         return []
 
+# Job Option Action
 class actionShowDetails(Action):
     def name(self):
         return "action_show_details"
     def run(self, dispatcher, tracker, domain):
         job_title = tracker.get_slot("job_title")
-        job_option = tracker.get_slot("JobOptions")  
-<<<<<<< HEAD
+        job_option = tracker.get_slot("JobOptions")
         user_id = (tracker.current_state())["sender_id"]
+
         #getting data from DB
-        query = cursor.execute(f"SELECT {job_option.capitalize()} FROM jobs WHERE Title='{job_title}' AND IdUserDb='{user_id}'")
-        for row in query:
-            job_data = row[0]
-        #put stuff from database here 
-        dispatcher.utter_message(f"the {job_option} of {job_title} is {job_data}")
-=======
-        user_id = (tracker.current_state())["sender_id"]        
-        #put stuff from database here 
-        dispatcher.utter_message("get " + job_option+" of "+ job_title )
->>>>>>> 247edbb95678b765a9a423e75f2fa66249c21f73
+        job_data = get_job_data(job_option, job_title, user_id)
+
+        #put stuff from DB here 
+        dispatcher.utter_message(f"{job_data}")
         return []
 
 class actionAcquaintance(Action):
@@ -128,3 +122,5 @@ class actionAcquaintance(Action):
         #data from data base here 
         dispatcher.utter_message("get acquaintance" + user_id)
         return []
+
+        
