@@ -12830,3 +12830,11 @@ b'web developer'
 b'description'
 b'date'
 b'deadline'
+Rasa process starting
+Restoring parameters from ./models/current/default/nlu\intent_classifier_tensorflow_embedding.ckpt
+b'jobs'
+b'web developer'
+b'date'
+b'qualification'
+b'procedure'
+b'application procedure'

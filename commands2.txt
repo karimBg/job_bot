@@ -1,3 +1,0 @@
-python -m rasa_core_sdk.endpoint --actions actions 
-python rasa_utils\bot.py --core models\dialogue
-yarn serve

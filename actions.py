@@ -7,18 +7,8 @@ from rasa_core_sdk.events import SlotSet
 from rasa_core_sdk.executor import CollectingDispatcher
 from rasa_core_sdk.forms import FormAction, REQUESTED_SLOT
 
-# import pyodbc
-
-# cnxn = pyodbc.connect(
-#     "Driver={SQL Server Native Client 11.0};"
-#     "Server=(localdb)\\MSSQLLocalDB;"
-#     "Database=BackEndDb;"
-#     "Trusted_Connection=yes;"
-# )
-# cursor = cnxn.cursor()
-from repository.data_access import cursor
-
-from repository.job_data import get_job_data
+# Our packages
+from repository.job_data import get_job_data, list_jobs
 
 # jobs action
 class action_job(Action):
@@ -27,11 +17,9 @@ class action_job(Action):
     def run(self, dispatcher, tracker, domain):
         job_title = tracker.get_slot("job_title")
         user_id = (tracker.current_state())["sender_id"]
-
-        jobs = cursor.execute(f"SELECT Title FROM jobs WHERE IdUserDb='{user_id}'")
-        possible_jobs = []
-        for row in jobs:
-            possible_jobs.append({"job_title": row[0]})
+        
+        # creates a list out of the existing jobs.
+        possible_jobs = list_jobs(user_id)
 
         message = "These are the available job offers that we have right now."
         buttons = []

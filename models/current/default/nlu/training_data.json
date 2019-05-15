@@ -688,6 +688,42 @@
           }
         ],
         "text": "what is the application procedure"
+      },
+      {
+        "intent": "ask_detail",
+        "entities": [
+          {
+            "start": 0,
+            "end": 8,
+            "value": "deadline",
+            "entity": "JobOptions"
+          }
+        ],
+        "text": "deadline"
+      },
+      {
+        "intent": "ask_detail",
+        "entities": [
+          {
+            "start": 10,
+            "end": 18,
+            "value": "deadline",
+            "entity": "JobOptions"
+          }
+        ],
+        "text": "job offer deadline"
+      },
+      {
+        "intent": "ask_detail",
+        "entities": [
+          {
+            "start": 12,
+            "end": 21,
+            "value": "deadline ",
+            "entity": "JobOptions"
+          }
+        ],
+        "text": "application deadline "
       }
     ],
     "regex_features": [],
