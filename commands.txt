@@ -1,3 +1,10 @@
+
+## Commands To run the Bot.
+python -m rasa_core_sdk.endpoint --actions actions 
+python rasa_utils\bot.py --core models\dialogue
+yarn serve
+
+
 Training of the NLU model didn't change much from the way it was shown in the video. To train and test the model run:
 
 Training the NLU model

@@ -7,6 +7,9 @@ from rasa_core_sdk.events import SlotSet
 from rasa_core_sdk.executor import CollectingDispatcher
 from rasa_core_sdk.forms import FormAction, REQUESTED_SLOT
 
+# Our packages
+from repository.job_data import get_job_data, list_jobs
+
 # jobs action
 class action_job(Action):
     def name(self):
@@ -14,9 +17,11 @@ class action_job(Action):
     def run(self, dispatcher, tracker, domain):
         job_title = tracker.get_slot("job_title")
         user_id = (tracker.current_state())["sender_id"]
-        #in possible_jobs get the titles of the jobs from the database of user_id ( entreprise id )
-        possible_jobs = [{"job_title" : "web developer"}, {"job_title": "web integrator"}, {"job_title": "software developer"}]
-        message = "those the available jobs offers we have"
+        
+        # creates a list out of the existing jobs.
+        possible_jobs = list_jobs(user_id)
+
+        message = "These are the available job offers that we have right now."
         buttons = []
         for job in possible_jobs:
             title = (job["job_title"])
@@ -36,7 +41,7 @@ class jobs_form(FormAction):
         return ["job_title"]
     def submit(self, dispatcher, tracker, domain):
         job_title = tracker.get_slot("job_title")
-       	dispatcher.utter_template('utter_submit', tracker)
+        dispatcher.utter_template('utter_submit', tracker)
         return []
 
 
@@ -48,10 +53,10 @@ class InternshipAction(Action):
         user_id = (tracker.current_state())["sender_id"]
         internship_title ="islem"
         # get all internship titles
-        possible_internship = [{"internship_title" : "web developer"}, {"internship_title": "web integrator"}, {"internship_title": "software developer"}]
+        possible_internships = [{"internship_title" : "web developer"}, {"internship_title": "web integrator"}, {"internship_title": "software developer"}]
         message = "those the available internship offers we have"
         buttons = []
-        for job in possible_jobs:
+        for job in possible_internships:
             title = (job["internship_title"])
             payload = ('/slot{\"internship_title\": '+ job["internship_title"] + '}')
             buttons.append({ "title": title, "payload": payload })
@@ -69,7 +74,7 @@ class jobs_form(FormAction):
         return ["job_title"]
     def submit(self, dispatcher, tracker, domain):
         job_title = tracker.get_slot("job_title")
-       	dispatcher.utter_template('utter_submit', tracker)
+        dispatcher.utter_template('utter_submit', tracker)
         return []
 
 class Actioncontact(Action):
@@ -81,15 +86,20 @@ class Actioncontact(Action):
         dispatcher.utter_message("hello")
         return []
 
+# Job Option Action
 class actionShowDetails(Action):
     def name(self):
         return "action_show_details"
     def run(self, dispatcher, tracker, domain):
         job_title = tracker.get_slot("job_title")
-        job_option = tracker.get_slot("JobOptions")  
-        user_id = (tracker.current_state())["sender_id"]        
-        #put stuff from database here 
-        dispatcher.utter_message("get " + job_option+" of "+ job_title )
+        job_option = tracker.get_slot("JobOptions")
+        user_id = (tracker.current_state())["sender_id"]
+
+        #getting data from DB
+        job_data = get_job_data(job_option, job_title, user_id)
+
+        #put stuff from DB here 
+        dispatcher.utter_message(f"{job_data}")
         return []
 
 class actionAcquaintance(Action):
@@ -100,3 +110,5 @@ class actionAcquaintance(Action):
         #data from data base here 
         dispatcher.utter_message("get acquaintance" + user_id)
         return []
+
+        
