@@ -22,6 +22,54 @@
         "text": "I'm looking for a job as a designer"
       },
       {
+        "intent": "inform_internship",
+        "entities": [
+          {
+            "start": 0,
+            "end": 9,
+            "value": "Ref-54125",
+            "entity": "internshipRef"
+          }
+        ],
+        "text": "Ref-54125"
+      },
+      {
+        "intent": "inform_internship",
+        "entities": [
+          {
+            "start": 0,
+            "end": 9,
+            "value": "Ref-02146",
+            "entity": "internshipRef"
+          }
+        ],
+        "text": "Ref-02146"
+      },
+      {
+        "intent": "inform_internship",
+        "entities": [
+          {
+            "start": 0,
+            "end": 9,
+            "value": "Ref-87732",
+            "entity": "internshipRef"
+          }
+        ],
+        "text": "Ref-87732"
+      },
+      {
+        "intent": "inform_internship",
+        "entities": [
+          {
+            "start": 0,
+            "end": 9,
+            "value": "Ref-98523",
+            "entity": "internshipRef"
+          }
+        ],
+        "text": "Ref-98523"
+      },
+      {
         "intent": "inform_job",
         "entities": [
           {
@@ -654,7 +702,12 @@
         "text": "date"
       }
     ],
-    "regex_features": [],
+    "regex_features": [
+      {
+        "name": "internshipRef",
+        "pattern": "Ref-[0-9]{5}"
+      }
+    ],
     "lookup_tables": [],
     "entity_synonyms": []
   }

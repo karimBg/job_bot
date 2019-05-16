@@ -13,10 +13,10 @@ def train_nlu(data, configs, model_dir):
 
 def run_nlu():
     interpreter = Interpreter.load("./models/current/default/nlu")
-    print(interpreter.parse(u" description"))
+    print(interpreter.parse(u"Ref-7821441221886"))
 
 
 if __name__ == "__main__":
-    train_nlu("./data/nlu.json", "config_spacy.json", "./models/current")
+    train_nlu("./data/nlu.json", "nlu_config.yml", "./models/current")
     run_nlu()
 

@@ -12265,3 +12265,116 @@ There is a memorised next action '0'
 Predicted next action using policy_1_MemoizationPolicy
 Predicted next action 'action_listen' with prob 1.00.
 Action 'action_listen' ended with events '[]'
+Rasa process starting
+Restoring parameters from ./models/current/default/nlu\intent_classifier_tensorflow_embedding.ckpt
+Rasa process starting
+Restoring parameters from ./models/current/default/nlu\intent_classifier_tensorflow_embedding.ckpt
+b'who are you'
+Creating a new tracker for id 'islem444441222'.
+Received user message 'who are you' with intent '{'name': 'acquaintance', 'confidence': 0.9742663502693176}' and entities '[]'
+Logged UserUtterance - tracker now has 2 events
+Current slot values: 
+	JobOptions: None
+	contact: None
+	degree: None
+	job_title: None
+	location: None
+	requested_slot: None
+There is no active form
+Current tracker state [None, None, None, {'slot_JobOptions_0': 1.0}, {'slot_JobOptions_0': 1.0, 'intent_acquaintance': 1.0, 'prev_action_listen': 1.0}]
+There is a memorised next action '13'
+Predicted next action using policy_1_MemoizationPolicy
+Predicted next action 'action_acquaintance' with prob 1.00.
+Calling action endpoint to run action 'action_acquaintance'.
+Action 'action_acquaintance' ended with events '[]'
+Bot utterance 'BotUttered(text: get acquaintanceislem444441222, data: {
+  "elements": null,
+  "buttons": null,
+  "attachment": null
+})'
+There is no active form
+Current tracker state [None, None, {'slot_JobOptions_0': 1.0}, {'slot_JobOptions_0': 1.0, 'intent_acquaintance': 1.0, 'prev_action_listen': 1.0}, {'slot_JobOptions_0': 1.0, 'intent_acquaintance': 1.0, 'prev_action_acquaintance': 1.0}]
+There is a memorised next action '0'
+Predicted next action using policy_1_MemoizationPolicy
+Predicted next action 'action_listen' with prob 1.00.
+Action 'action_listen' ended with events '[]'
+b'jobs offer'
+Recreating tracker for id 'islem444441222'
+Received user message 'jobs offer' with intent '{'name': 'inform_job', 'confidence': 0.8204199075698853}' and entities '[]'
+Logged UserUtterance - tracker now has 6 events
+Current slot values: 
+	JobOptions: None
+	contact: None
+	degree: None
+	job_title: None
+	location: None
+	requested_slot: None
+There is no active form
+Current tracker state [None, {'slot_JobOptions_0': 1.0}, {'slot_JobOptions_0': 1.0, 'intent_acquaintance': 1.0, 'prev_action_listen': 1.0}, {'slot_JobOptions_0': 1.0, 'intent_acquaintance': 1.0, 'prev_action_acquaintance': 1.0}, {'slot_JobOptions_0': 1.0, 'intent_inform_job': 1.0, 'prev_action_listen': 1.0}]
+There is a memorised next action '21'
+Predicted next action using policy_1_MemoizationPolicy
+Predicted next action 'action_job' with prob 1.00.
+Calling action endpoint to run action 'action_job'.
+Action 'action_job' ended with events '['SlotSet(key: job_title, value: None)']'
+Bot utterance 'BotUttered(text: those the available jobs offers we have, data: {
+  "elements": null,
+  "buttons": [
+    {
+      "payload": "/slot{\"job_title\": web developer}",
+      "title": "web developer"
+    },
+    {
+      "payload": "/slot{\"job_title\": web integrator}",
+      "title": "web integrator"
+    },
+    {
+      "payload": "/slot{\"job_title\": software developer}",
+      "title": "software developer"
+    }
+  ],
+  "attachment": null
+})'
+There is no active form
+Current tracker state [{'slot_JobOptions_0': 1.0}, {'slot_JobOptions_0': 1.0, 'intent_acquaintance': 1.0, 'prev_action_listen': 1.0}, {'slot_JobOptions_0': 1.0, 'intent_acquaintance': 1.0, 'prev_action_acquaintance': 1.0}, {'slot_JobOptions_0': 1.0, 'intent_inform_job': 1.0, 'prev_action_listen': 1.0}, {'slot_JobOptions_0': 1.0, 'intent_inform_job': 1.0, 'prev_action_job': 1.0}]
+There is a memorised next action '25'
+Predicted next action using policy_1_MemoizationPolicy
+Predicted next action 'jobs_form' with prob 1.00.
+Calling action endpoint to run action 'jobs_form'.
+Action 'jobs_form' ended with events '['Form(jobs_form)', 'SlotSet(key: requested_slot, value: job_title)']'
+There is an active form 'jobs_form'
+Current tracker state [{'slot_JobOptions_0': 1.0}, {'slot_JobOptions_0': 1.0, 'intent_acquaintance': 1.0, 'prev_action_listen': 1.0}, {'slot_JobOptions_0': 1.0, 'intent_acquaintance': 1.0, 'prev_action_acquaintance': 1.0}, {'slot_JobOptions_0': 1.0, 'intent_inform_job': 1.0, 'prev_action_listen': 1.0}, {'slot_JobOptions_0': 1.0, 'intent_inform_job': 1.0, 'prev_action_job': 1.0}]
+There is a memorised next action '25'
+Predicted next action using policy_0_FormPolicy
+Predicted next action 'action_listen' with prob 1.00.
+Action 'action_listen' ended with events '[]'
+b'who are you'
+Creating a new tracker for id 'islem'.
+Received user message 'who are you' with intent '{'name': 'acquaintance', 'confidence': 0.9742663502693176}' and entities '[]'
+Logged UserUtterance - tracker now has 2 events
+Current slot values: 
+	JobOptions: None
+	contact: None
+	degree: None
+	job_title: None
+	location: None
+	requested_slot: None
+There is no active form
+Current tracker state [None, None, None, {'slot_JobOptions_0': 1.0}, {'slot_JobOptions_0': 1.0, 'intent_acquaintance': 1.0, 'prev_action_listen': 1.0}]
+There is a memorised next action '13'
+Predicted next action using policy_1_MemoizationPolicy
+Predicted next action 'action_acquaintance' with prob 1.00.
+Calling action endpoint to run action 'action_acquaintance'.
+Action 'action_acquaintance' ended with events '[]'
+Bot utterance 'BotUttered(text: get acquaintanceislem, data: {
+  "elements": null,
+  "buttons": null,
+  "attachment": null
+})'
+There is no active form
+Current tracker state [None, None, {'slot_JobOptions_0': 1.0}, {'slot_JobOptions_0': 1.0, 'intent_acquaintance': 1.0, 'prev_action_listen': 1.0}, {'slot_JobOptions_0': 1.0, 'intent_acquaintance': 1.0, 'prev_action_acquaintance': 1.0}]
+There is a memorised next action '0'
+Predicted next action using policy_1_MemoizationPolicy
+Predicted next action 'action_listen' with prob 1.00.
+Action 'action_listen' ended with events '[]'
+Rasa process starting
+Restoring parameters from ./models/current/default/nlu\intent_classifier_tensorflow_embedding.ckpt

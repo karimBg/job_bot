@@ -3,22 +3,18 @@
 actions:
 - action_internship
 - utter_location
-- action_setTitle_none
 - utter_slots_values
 - utter_how_are_you
 - utter_nice_to_meet_you
 - action_acquaintance
 - action_location
-- utter_ask_details
 - utter_greet
-- action_ask_details
 - utter_goodbye
 - action_show_details
 - utter_ask_detail
 - action_job
 - action_contact
 - utter_ask_contact
-- details_job_action
 entities:
 - degree
 - job_title
