@@ -25,7 +25,7 @@ class action_job(Action):
         buttons = []
         for job in possible_jobs:
             title = (job["job_title"])
-            payload = ('/slot{\"job_title\": '+ job["job_title"] + '}')
+            payload = (job["job_title"])
             buttons.append({ "title": title, "payload": payload })
         dispatcher.utter_button_message(message, buttons)
         return [SlotSet("job_title", job_title)]
@@ -51,31 +51,32 @@ class InternshipAction(Action):
         return "action_internship"
     def run(self, dispatcher, tracker, domain):
         user_id = (tracker.current_state())["sender_id"]
-        internship_title ="islem"
-        # get all internship titles
-        possible_internships = [{"internship_title" : "web developer"}, {"internship_title": "web integrator"}, {"internship_title": "software developer"}]
+        # get all internship reference and project title ( recommended )
+        possible_internships = [{"internshipRef" : "Ref-23283"}, {"internshipRef": "Ref-72174"}, {"internshipRef": "Ref-51212"}]
         message = "those the available internship offers we have"
         buttons = []
-        for job in possible_internships:
-            title = (job["internship_title"])
-            payload = ('/slot{\"internship_title\": '+ job["internship_title"] + '}')
+        for internship in possible_internships:
+            title = (internship["internshipRef"])
+            payload = (internship["internshipRef"])
             buttons.append({ "title": title, "payload": payload })
         dispatcher.utter_button_message(message, buttons)
-        return [SlotSet("internship_title", internship_title)]
-
-class jobs_form(FormAction):
+        
+        return []
+#do nothing here
+class internshipform(FormAction):
     """Example of a custom form action"""
     def name(self):
         """Unique identifier of the form"""
-        return "jobs_form"
+        return "internship_form"
     @staticmethod
     def required_slots(tracker: Tracker) -> List[Text]:
         """A list of required slots that the form has to fill"""
-        return ["job_title"]
+        return ["internshipRef"]
     def submit(self, dispatcher, tracker, domain):
-        job_title = tracker.get_slot("job_title")
+        job_title = tracker.get_slot("internshipRef")
         dispatcher.utter_template('utter_submit', tracker)
         return []
+
 
 class Actioncontact(Action):
     def name(self):

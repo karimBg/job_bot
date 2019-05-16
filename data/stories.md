@@ -62,3 +62,21 @@
 #story 8522
 * acquaintance
     - action_acquaintance
+
+## Generated Story 8362015419805915240
+* inform_internship
+    - action_internship
+
+## Generated Story 8362015419805915240
+* inform_internship
+    - action_internship
+    - internship_form
+    - form{"name": "internship_form"}
+    - form{"name": null}
+    - slot{"requested_slot": null}
+* inform_internship{"internshipRef": "Ref-12188"}
+    - slot{"internshipRef": "Ref-12188"}
+    - action_deactivate_form
+    - form{"name": null}
+    - slot{"requested_slot": null}
+

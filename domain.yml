@@ -1,34 +1,36 @@
 %YAML 1.1
 ---
 actions:
-- action_internship
-- utter_location
-- utter_slots_values
-- utter_how_are_you
-- utter_nice_to_meet_you
-- action_acquaintance
-- action_location
-- utter_greet
-- utter_goodbye
 - action_show_details
-- utter_ask_detail
 - action_job
-- action_contact
+- utter_nice_to_meet_you
+- action_internship
+- utter_greet
+- utter_slots_values
+- action_location
 - utter_ask_contact
+- utter_location
+- action_acquaintance
+- utter_how_are_you
+- utter_ask_detail
+- action_contact
+- utter_goodbye
 entities:
-- degree
-- job_title
 - JobOptions
+- degree
 - contact
+- internshipRef
+- job_title
 forms:
 - jobs_form
+- internship_form
 intents:
+- inform_internship
 - ask_detail
 - inform_job
 - greet
 - how_are_you
 - nice_to_meet_you
-- inform_internship
 - goodbye
 - inform_contact
 - inform_location
@@ -41,6 +43,9 @@ slots:
     type: text
   degree:
     type: text
+  internshipRef:
+    initial_value: None
+    type: unfeaturized
   job_title:
     type: text
   location:
@@ -81,10 +86,10 @@ templates:
   - text: I'm doing very well. Thanks!
   - text: Feeling wonderful!
   - text: Wonderful! Thanks for asking.
-  utter_slots_values:
-  - text: "what is kind of job you are looking for:\n - job_title: {job_title}\n"
   utter_nice_to_meet_you:
   - text: It's nice meeting you, too.
   - text: Likewise. I'm looking forward to helping you out.
   - text: Nice meeting you, as well.
   - text: The pleasure is mine.
+  utter_slots_values:
+  - text: "what is kind of job you are looking for:\n - job_title: {job_title}\n"

@@ -5,7 +5,7 @@
         "JobOptions"
       ]
     },
-    "utter_how_are_you": {
+    "action_acquaintance": {
       "slots": []
     },
     "jobs_form": {
@@ -20,22 +20,25 @@
         "requested_slot"
       ]
     },
-    "utter_goodbye": {
-      "slots": []
-    },
-    "action_acquaintance": {
-      "slots": []
-    },
     "action_contact": {
       "slots": []
     },
-    "utter_greet": {
+    "action_internship": {
       "slots": []
     },
     "utter_nice_to_meet_you": {
       "slots": []
     },
+    "utter_how_are_you": {
+      "slots": []
+    },
+    "utter_greet": {
+      "slots": []
+    },
     "action_show_details": {
+      "slots": []
+    },
+    "utter_goodbye": {
       "slots": []
     }
   },
@@ -51,8 +54,8 @@
     "rasa_core.policies.memoization.MemoizationPolicy",
     "rasa_core.policies.keras_policy.KerasPolicy"
   ],
-  "trained_at": "20190508-145536",
+  "trained_at": "20190516-140234",
   "rasa_core": "0.13.3",
   "tensorflow": "1.12.0",
-  "sklearn": "0.20.3"
+  "sklearn": "0.21.1"
 }

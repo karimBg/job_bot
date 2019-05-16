@@ -1,34 +1,34 @@
 %YAML 1.1
 ---
 actions:
-- action_internship
-- utter_location
-- action_setTitle_none
-- utter_slots_values
-- utter_how_are_you
-- utter_nice_to_meet_you
-- action_acquaintance
-- action_location
-- utter_ask_details
-- utter_greet
-- action_ask_details
-- utter_goodbye
 - action_show_details
-- utter_ask_detail
 - action_job
-- action_contact
+- utter_nice_to_meet_you
+- action_internship
+- utter_greet
+- utter_slots_values
+- action_location
 - utter_ask_contact
-- details_job_action
+- utter_location
+- action_acquaintance
+- utter_how_are_you
+- utter_ask_detail
+- action_contact
+- utter_goodbye
 config:
   store_entities_as_slots: true
 entities:
-- degree
-- job_title
 - JobOptions
+- degree
 - contact
+- internshipRef
+- job_title
 forms:
 - jobs_form
+- internship_form
 intents:
+- inform_internship:
+    use_entities: true
 - ask_detail:
     use_entities: true
 - inform_job:
@@ -38,8 +38,6 @@ intents:
 - how_are_you:
     use_entities: true
 - nice_to_meet_you:
-    use_entities: true
-- inform_internship:
     use_entities: true
 - goodbye:
     use_entities: true
@@ -62,6 +60,10 @@ slots:
     auto_fill: true
     initial_value: null
     type: rasa_core.slots.TextSlot
+  internshipRef:
+    auto_fill: true
+    initial_value: None
+    type: rasa_core.slots.UnfeaturizedSlot
   job_title:
     auto_fill: true
     initial_value: null
