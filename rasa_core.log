@@ -13371,3 +13371,57 @@ There is no memorised next action
 Predicted next action using policy_2_KerasPolicy
 Predicted next action 'action_listen' with prob 1.00.
 Action 'action_listen' ended with events '[]'
+Rasa process starting
+C:\Anaconda3\envs\nlp_course\lib\site-packages\sklearn\base.py:253: UserWarning: Trying to unpickle estimator CountVectorizer from version 0.21.1 when using version 0.20.3. This might lead to breaking code or invalid results. Use at your own risk.
+  UserWarning)
+
+Restoring parameters from ./models/current/default/nlu\intent_classifier_tensorflow_embedding.ckpt
+b'hi'
+b'how are you'
+b'jobs'
+b'web developer'
+b'description'
+b'date'
+b'internsjip'
+b'internship'
+Rasa process starting
+C:\Anaconda3\envs\nlp_course\lib\site-packages\sklearn\base.py:253: UserWarning: Trying to unpickle estimator CountVectorizer from version 0.21.1 when using version 0.20.3. This might lead to breaking code or invalid results. Use at your own risk.
+  UserWarning)
+
+Restoring parameters from ./models/current/default/nlu\intent_classifier_tensorflow_embedding.ckpt
+Rasa process starting
+C:\Anaconda3\envs\nlp_course\lib\site-packages\sklearn\base.py:253: UserWarning: Trying to unpickle estimator CountVectorizer from version 0.21.1 when using version 0.20.3. This might lead to breaking code or invalid results. Use at your own risk.
+  UserWarning)
+
+Restoring parameters from ./models/current/default/nlu\intent_classifier_tensorflow_embedding.ckpt
+b'hi'
+b'internships'
+b'internship'
+Failed to run custom action 'action_internship'. Action server responded with a non 200 status code of 500. Make sure your action server properly runs actions and returns a 200 once the action is executed. Error: 500 Server Error: INTERNAL SERVER ERROR for url: http://localhost:5055/webhook
+Encountered an exception while running action 'action_internship'. Bot will continue, but the actions events are lost. Make sure to fix the exception in your custom code.
+b'internship'
+Failed to run custom action 'action_internship'. Action server responded with a non 200 status code of 500. Make sure your action server properly runs actions and returns a 200 once the action is executed. Error: 500 Server Error: INTERNAL SERVER ERROR for url: http://localhost:5055/webhook
+Encountered an exception while running action 'action_internship'. Bot will continue, but the actions events are lost. Make sure to fix the exception in your custom code.
+b'internship'
+b'internship'
+b'internship'
+b'internship'
+b'jobs'
+b'internship'
+b'internship'
+Rasa process starting
+C:\Anaconda3\envs\nlp_course\lib\site-packages\sklearn\base.py:253: UserWarning: Trying to unpickle estimator CountVectorizer from version 0.21.1 when using version 0.20.3. This might lead to breaking code or invalid results. Use at your own risk.
+  UserWarning)
+
+Restoring parameters from ./models/current/default/nlu\intent_classifier_tensorflow_embedding.ckpt
+b'hi'
+b'how are you ?'
+b'jobs'
+b'web developer'
+b'description'
+b'opening date'
+b'date'
+b'offer deadline'
+b'internship'
+b'ref-88543'
+b'design2: ref-94799'

@@ -8,7 +8,8 @@ from rasa_core_sdk.executor import CollectingDispatcher
 from rasa_core_sdk.forms import FormAction, REQUESTED_SLOT
 
 # Our packages
-from repository.job_data import get_job_data, list_jobs
+from repository.job_data import get_job_data, list_jobs, generate_job_buttons
+from repository.internship_data import list_internships, generate_internship_buttons
 
 # jobs action
 class action_job(Action):
@@ -17,16 +18,15 @@ class action_job(Action):
     def run(self, dispatcher, tracker, domain):
         job_title = tracker.get_slot("job_title")
         user_id = (tracker.current_state())["sender_id"]
-        
+
         # creates a list out of the existing jobs.
         possible_jobs = list_jobs(user_id)
 
-        message = "These are the available job offers that we have right now."
-        buttons = []
-        for job in possible_jobs:
-            title = (job["job_title"])
-            payload = (job["job_title"])
-            buttons.append({ "title": title, "payload": payload })
+        message = "These are the available job offers that i know about!"
+
+        # generates a list of buttons from the list of possible_jobs
+        buttons = generate_job_buttons(possible_jobs)
+
         dispatcher.utter_button_message(message, buttons)
         return [SlotSet("job_title", job_title)]
 
@@ -51,17 +51,18 @@ class InternshipAction(Action):
         return "action_internship"
     def run(self, dispatcher, tracker, domain):
         user_id = (tracker.current_state())["sender_id"]
+
         # get all internship reference and project title ( recommended )
-        possible_internships = [{"internshipRef" : "Ref-23283"}, {"internshipRef": "Ref-72174"}, {"internshipRef": "Ref-51212"}]
-        message = "those the available internship offers we have"
-        buttons = []
-        for internship in possible_internships:
-            title = (internship["internshipRef"])
-            payload = (internship["internshipRef"])
-            buttons.append({ "title": title, "payload": payload })
+        possible_internships = list_internships(user_id)
+
+        message = "These are the available internship offers that we have right now, use the Internship Reference to learn more about an offer!"
+
+        # generates a list of buttons from the list of possible_internships
+        buttons = generate_internship_buttons(possible_internships)
+
         dispatcher.utter_button_message(message, buttons)
-        
         return []
+        
 #do nothing here
 class internshipform(FormAction):
     """Example of a custom form action"""

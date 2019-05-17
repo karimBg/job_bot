@@ -66,4 +66,21 @@ def query_data(query_option):
 
 # query = cursor.execute(f"SELECT {query_option} FROM jobs WHERE Title='designer' AND IdUserDb='5587499e-a518-4303-946c-cc9fc96b5bba'")
 
-query_data("date")
+# query_data("date")
+
+
+def list_internships(user_id):
+   internships = cursor.execute(f"SELECT Title, RefInternship FROM internships WHERE IdUserDb='{user_id}'")
+
+   possible_internships = []
+   for row in internships:
+      possible_internships.append({
+      "internshipRef": row[1],
+      "Internship Title": row[0]
+      })
+
+   return possible_internships
+   
+result = list_internships("5587499e-a518-4303-946c-cc9fc96b5bba")
+
+print(result)
