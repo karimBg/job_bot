@@ -80,3 +80,74 @@
     - form{"name": null}
     - slot{"requested_slot": null}
 
+## apply happy path
+* greet
+    - utter_greet
+* apply_job
+    - apply_form
+    - form{"name": "apply_form"}
+    - form{"name": null}
+    - utter_apply_slots_values
+* thankyou
+    - utter_noworries
+
+## Generated Story 4928413376213491340
+* apply_job
+    - apply_form
+    - form{"name": "apply_form"}
+    - slot{"requested_slot": "jobRef"}
+* form: inform_apply{"jobRef": "job-54212"}
+    - slot{"jobRef": "job-54212"}
+    - form: apply_form
+    - slot{"jobRef": "job-54212"}
+    - slot{"requested_slot": "name"}
+* form: inform_apply{"name": "Mohamed Karim"}
+    - slot{"name": "Mohamed Karim"}
+    - form: apply_form
+    - slot{"name": "Mohamed Karim"}
+    - slot{"requested_slot": "experience_years"}
+* form: inform_apply{"experience_years": "2"}
+    - slot{"experience_years": "2"}
+    - form: apply_form
+    - slot{"experience_years": "2"}
+    - slot{"requested_slot": "phone_number"}
+* form: inform_apply{"phone_number": "50730571"}
+    - slot{"phone_number": "50730571"}
+    - form: apply_form
+    - slot{"phone_number": "50730571"}
+    - slot{"requested_slot": "email"}
+* form: inform_apply{"email": "islem@email.com"}
+    - slot{"email": "islem@email.com"}
+    - form: apply_form
+    - slot{"email": "islem@email.com"}
+    - slot{"requested_slot": "cv_link"}
+* inform_apply{"cv_link": "https://www.linkedin.com/in/islem-mezghani-1a4369144/"}
+    - slot{"cv_link": "https://www.linkedin.com/in/islem-mezghani-1a4369144/"}
+    - action_deactivate_form
+    - form{"name": null}
+    - slot{"requested_slot": null}
+
+## apply job stop and really stop path
+* greet
+    - utter_greet
+* apply_job
+    - apply_form
+    - form{"name": "apply_form"}
+* stop
+    - utter_ask_continue
+* deny
+    - action_deactivate_form
+    - form{"name": null}
+
+## apply job stop but continue path
+* apply_job
+    - apply_form
+    - form{"name": "apply_form"}
+* stop
+    - utter_ask_continue
+* affirm
+    - apply_form
+    - form{"name": null}
+    - utter_apply_slots_values
+* thankyou
+    - utter_noworries

@@ -63,7 +63,6 @@ class InternshipAction(Action):
         dispatcher.utter_button_message(message, buttons)
         return []
         
-#do nothing here
 class internshipform(FormAction):
     """Example of a custom form action"""
     def name(self):
@@ -77,7 +76,6 @@ class internshipform(FormAction):
         job_title = tracker.get_slot("internshipRef")
         dispatcher.utter_template('utter_submit', tracker)
         return []
-
 
 class Actioncontact(Action):
     def name(self):
@@ -113,4 +111,85 @@ class actionAcquaintance(Action):
         dispatcher.utter_message("get acquaintance" + user_id)
         return []
 
-        
+class ApplyForm(FormAction):
+    """Example of a custom form action"""
+
+    def name(self):
+        # type: () -> Text
+        """Unique identifier of the form"""
+
+        return "apply_form"
+
+    @staticmethod
+    def required_slots(tracker: Tracker) -> List[Text]:
+        """A list of required slots that the form has to fill"""
+
+        return ["jobRef","name", "experience_years",
+                "phone_number", "email","cv_link"]
+
+    def slot_mappings(self):
+        # type: () -> Dict[Text: Union[Dict, List[Dict]]]
+        """A dictionary to map required slots to
+            - an extracted entity
+            - intent: value pairs
+            - a whole message
+            or a list of them, where a first match will be picked"""
+
+        return {"jobRef": self.from_entity(entity="jobRef",
+                                            intent=["inform_apply","inform_job"]),
+                "name": self.from_entity(entity="name",
+                                                intent="inform_apply"),                            
+                "experience_years": [self.from_entity(entity="experience_years",
+                                                intent=["inform_apply",
+                                                        "apply_job"]),
+                               self.from_entity(entity="experience_years")],
+                "phone_number": [self.from_entity(entity="phone_number", intent=["inform","apply_job"]),
+                               self.from_entity(entity="phone_number")],
+                "email": [self.from_entity(entity="email", intent=["inform","apply_job"]),
+                               self.from_entity(entity="email")],
+                "cv_link": [self.from_entity(entity="cv_link", intent=["inform","apply_job"]),
+                               self.from_entity(entity="cv_link")]}
+
+
+    @staticmethod
+    def is_int(string: Text) -> bool:
+        """Check if a string is an integer"""
+        try:
+            int(string)
+            return True
+        except ValueError:
+            return False
+
+
+
+    def validate_experience_years(self,
+                            value: Text,
+                            dispatcher: CollectingDispatcher,
+                            tracker: Tracker,
+                            domain: Dict[Text, Any]) -> Optional[Text]:
+        """Validate experience years value."""
+
+        if self.is_int(value) and int(value) > 0:
+            return value
+        else:
+            dispatcher.utter_template('utter_wrong_experience_years', tracker)
+            # validation failed, set slot to None
+            return None
+
+    @staticmethod
+    def validate_email(value: Text,
+                                 dispatcher: CollectingDispatcher,
+                                 tracker: Tracker,
+                                 domain: Dict[Text, Any]) -> Any:
+            return value
+
+    def submit(self,
+               dispatcher: CollectingDispatcher,
+               tracker: Tracker,
+               domain: Dict[Text, Any]) -> List[Dict]:
+        """Define what the form has to do
+            after all required slots are filled"""
+        """in other words from here the applicant data goes to the database"""    
+        # utter submit template
+        dispatcher.utter_template('utter_apply_submit', tracker)
+        return []
