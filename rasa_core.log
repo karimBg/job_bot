@@ -14126,3 +14126,30 @@ There is a memorised next action '0'
 Predicted next action using policy_1_MemoizationPolicy
 Predicted next action 'action_listen' with prob 1.00.
 Action 'action_listen' ended with events '[]'
+Rasa process starting
+C:\Anaconda3\envs\nlp_course\lib\site-packages\sklearn\base.py:253: UserWarning: Trying to unpickle estimator CountVectorizer from version 0.21.1 when using version 0.20.3. This might lead to breaking code or invalid results. Use at your own risk.
+  UserWarning)
+
+Restoring parameters from ./models/current/default/nlu\intent_classifier_tensorflow_embedding.ckpt
+b'hello'
+b'how are you'
+b'i want to be a lawyer'
+b'designer'
+b'mission'
+Failed to run custom action 'action_show_details'. Action server responded with a non 200 status code of 500. Make sure your action server properly runs actions and returns a 200 once the action is executed. Error: 500 Server Error: INTERNAL SERVER ERROR for url: http://localhost:5055/webhook
+Encountered an exception while running action 'action_show_details'. Bot will continue, but the actions events are lost. Make sure to fix the exception in your custom code.
+b'goodbye'
+b'chbik'
+b'internship'
+b'internship'
+Rasa process starting
+C:\Anaconda3\envs\nlp_course\lib\site-packages\sklearn\base.py:253: UserWarning: Trying to unpickle estimator CountVectorizer from version 0.21.1 when using version 0.20.3. This might lead to breaking code or invalid results. Use at your own risk.
+  UserWarning)
+
+Restoring parameters from ./models/current/default/nlu\intent_classifier_tensorflow_embedding.ckpt
+b'hi'
+b'how are you ?'
+b'whats new?'
+b'jobs'
+b'internship'
+b'internship'

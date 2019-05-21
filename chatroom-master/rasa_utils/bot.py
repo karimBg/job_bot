@@ -53,7 +53,7 @@ def create_argument_parser():
             '--auth_token',
             type=str,
             help="Enable token based authentication. Requests need to provide "
-                 "the token to be accepted.")
+                "the token to be accepted.")
     parser.add_argument(
             '--cors',
             nargs='*',
