@@ -15,7 +15,7 @@ response = cursor.execute(f"SELECT Title FROM jobs WHERE IdUserDb='5587499e-a518
 possible_jobs = []
 for row in response:
     # result = "%r" % row
-    possible_jobs.append({"job_title": row[0]})
+    possible_jobs.append({"jobRef": row[0]})
 
 # print(possible_jobs)
 # print(result[2 : len(result) - 4])
@@ -84,3 +84,25 @@ def list_internships(user_id):
 result = list_internships("5587499e-a518-4303-946c-cc9fc96b5bba")
 
 print(result)
+
+def getRoleID(sub_role):
+    i =100
+    if(sub_role=="Network and Security"):
+        i=8
+    elif(sub_role=="Product Marketing"):
+        i=7
+    elif(sub_role=="Digital Marketing"):
+        i=3
+    elif(sub_role=="Back-End Development"):
+        i=1
+    elif(sub_role=="Front-End Development"):
+        i=0
+    elif(sub_role=="Fullstack"):
+        i=2
+    if(sub_role=="UI"):
+        i=4
+    elif(sub_role=="UX"):
+        i=5
+    elif(sub_role=="UI/UX"):
+        i=6
+    return i 

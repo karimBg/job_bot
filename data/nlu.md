@@ -21,6 +21,12 @@
 - who the hell are you?
 - what can you do for me?
 
+## intent:affirm
+- yes
+
+## intent:apply_job
+- [HendaKriaa788@gmail.com](email)
+
 ## intent:ask_detail
 - [description](JobOptions)
 - [mission](JobOptions)
@@ -107,6 +113,14 @@
 - how are you
 - how are you
 
+## intent:inform_apply
+- [job-83737](jobRef)
+- [Henda Kriaa](name)
+- [2](experience_years) years
+- [71589322](phone_number)
+- [https://www.linkedin.com/in/montassar-yaakoubi-b95470173/](cv_link)
+- [HendaKriaa788@gmail.com](email)
+
 ## intent:inform_contact
 - how can i call you
 - what is your [email](contact)
@@ -148,6 +162,9 @@
 - [web designer](job_title)
 - i want a job
 - [web developer](job_title)
+- i want a job
+- [Software Development](role)
+- [Fullstack](sub_role)
 
 ## intent:nice_to_meet_you
 - nice to meet you

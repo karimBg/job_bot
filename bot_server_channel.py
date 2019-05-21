@@ -97,7 +97,7 @@ class BotServerInputChannel(InputChannel):
         self.agent = agent
         self.port = port
         self.preprocessor = preprocessor
-
+        
     @classmethod
     def name(cls):
         return "chatroom"
