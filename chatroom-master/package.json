@@ -5,7 +5,7 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.6",
-    "date-fns": "https://registry.yarnpkg.com/date-fns/-/date-fns-2.0.0-alpha.23.tgz",
+    "date-fns": "2.0.0-alpha.23",
     "lodash.isequal": "^4.5.0",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
