@@ -69,18 +69,29 @@ def query_data(query_option):
 # query_data("date")
 
 
-def list_internships(user_id):
-   internships = cursor.execute(f"SELECT Title, RefInternship FROM internships WHERE IdUserDb='{user_id}'")
+# def list_internships(user_id):
+#    internships = cursor.execute(f"SELECT Title, RefInternship FROM internships WHERE IdUserDb='{user_id}'")
 
-   possible_internships = []
-   for row in internships:
-      possible_internships.append({
-      "internshipRef": row[1],
-      "Internship Title": row[0]
-      })
+#    possible_internships = []
+#    for row in internships:
+#       possible_internships.append({
+#       "internshipRef": row[1],
+#       "Internship Title": row[0]
+#       })
 
-   return possible_internships
-   
-result = list_internships("5587499e-a518-4303-946c-cc9fc96b5bba")
+#    return possible_internships
 
-print(result)
+# result = list_internships("5587499e-a518-4303-946c-cc9fc96b5bba")
+
+# print(result)
+# 5587499e-a518-4303-946c-cc9fc96b5bba
+# dfac1d50-83ff-4073-95eb-4e12ac800b9c
+# [-]a518[-]4303[-]946c[-]cc9fc96b5bba"
+import datetime
+
+userId = "5587499e-a518-4303-946c-cc9fc96b5bba"
+Experience_years = "1"
+Apply_date = datetime.datetime.now()
+# query.execute("SET IDENTITY_INSERT Applicant ON")
+query = cursor.execute(f"INSERT INTO Applicant( Name, Experience_years, Apply_date, IdUserDb) VALUES ('islem', {Experience_years}, '{Apply_date}', '{userId}')")
+cnxn.commit()
