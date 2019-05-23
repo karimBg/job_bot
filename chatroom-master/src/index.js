@@ -1,4 +1,4 @@
-@startuml
+
 // @flow
 import type { ChatMessage } from "./Chatroom";
 
@@ -224,4 +224,3 @@ window.DebugChatroom = function(options: ChatroomOptions) {
     this.ref.getChatroom().sendMessage(options.startMessage);
   }
 };
-@enduml

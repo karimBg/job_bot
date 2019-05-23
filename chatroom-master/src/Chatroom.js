@@ -17,19 +17,19 @@ const GROUP_INTERVAL = 60000;
 
 export type ChatMessage = {
   message:
-    | {
-        type: "text",
-        text: string
-      }
-    | { type: "image", image: string }
-    | {
-        type: "button",
-        buttons: Array<{ payload: string, title: string, selected?: boolean }>
-      }
-    | {
-        type: "custom",
-        content: any
-      },
+  | {
+    type: "text",
+    text: string
+  }
+  | { type: "image", image: string }
+  | {
+    type: "button",
+    buttons: Array<{ payload: string, title: string, selected?: boolean }>
+  }
+  | {
+    type: "custom",
+    content: Array<{ payload: string, title: string, selected?: boolean }>
+  },
   username: string,
   time: number,
   uuid: string
