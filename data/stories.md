@@ -21,51 +21,10 @@
 ## story 09 
 * goodbye
     - utter_goodbye
-    
-## Generated Story -973804493632658673
-* inform_job
-    - action_job
-    - jobs_form
-    - form{"name": "jobs_form"}
-    - slot{"job_title": "web designer"}
-    - slot{"requested_slot": "job_title"}
-    - utter_ask_detail
-* ask_detail{"JobOptions": "description"}
-    - slot{"JobOptions": "description"}
-    - action_show_details
-    - action_deactivate_form
-    - slot{"job_title": null}
-    - form{"name": null}
-    - slot{"requested_slot": null}
-
-## Generated Story -973804493632658672
-* inform_job
-    - action_job
-    - jobs_form
-    - form{"name": "jobs_form"}
-    - slot{"job_title": "web designer"}
-    - slot{"requested_slot": "job_title"}
-    - utter_ask_detail
-* ask_detail{"JobOptions": "description"}
-    - slot{"JobOptions": "description"}
-    - action_show_details
-    - action_deactivate_form
-    - slot{"job_title": null}
-    - form{"name": null}
-    - slot{"requested_slot": null}
-
-#story 88
-* ask_detail{"JobOptions": "mission"}
-    - slot{"JobOptions": "mission"}
-    - action_show_details
 
 #story 8522
 * acquaintance
     - action_acquaintance
-
-## Generated Story 8362015419805915240
-* inform_internship
-    - action_internship
 
 ## Generated Story 8362015419805915240
 * inform_internship
@@ -81,37 +40,33 @@
     - slot{"requested_slot": null}
 
 ## apply happy path
-* greet
-    - utter_greet
 * apply_job
     - apply_form
     - form{"name": "apply_form"}
     - form{"name": null}
     - utter_apply_slots_values
-* thankyou
-    - utter_noworries
 
 ## Generated Story 4928413376213491340
 * apply_job
     - apply_form
     - form{"name": "apply_form"}
     - slot{"requested_slot": "jobRef"}
-* form: inform_apply{"jobRef": "job-54212"}
-    - slot{"jobRef": "job-54212"}
+* form: inform_apply{"jobRef": "job-39995"}
+    - slot{"jobRef": "job-39995"}
     - form: apply_form
-    - slot{"jobRef": "job-54212"}
+    - slot{"jobRef": "job-39995"}
     - slot{"requested_slot": "name"}
 * form: inform_apply{"name": "Mohamed Karim"}
     - slot{"name": "Mohamed Karim"}
     - form: apply_form
-    - slot{"name": "Mohamed Karim"}
+    - slot{"name": "Mezghani Islem"}
     - slot{"requested_slot": "experience_years"}
 * form: inform_apply{"experience_years": "2"}
     - slot{"experience_years": "2"}
     - form: apply_form
     - slot{"experience_years": "2"}
     - slot{"requested_slot": "phone_number"}
-* form: inform_apply{"phone_number": "50730571"}
+* form: inform_apply{"phone_number": "41155241"}
     - slot{"phone_number": "50730571"}
     - form: apply_form
     - slot{"phone_number": "50730571"}
@@ -121,33 +76,39 @@
     - form: apply_form
     - slot{"email": "islem@email.com"}
     - slot{"requested_slot": "cv_link"}
-* inform_apply{"cv_link": "https://www.linkedin.com/in/islem-mezghani-1a4369144/"}
-    - slot{"cv_link": "https://www.linkedin.com/in/islem-mezghani-1a4369144/"}
+* form: inform_apply{"cv_link": "linkedin.com/in/islem-mezghani-1a4369144/"}
+    - slot{"cv_link": "linkedin.com/in/islem-mezghani-1a4369144/"}
     - action_deactivate_form
     - form{"name": null}
     - slot{"requested_slot": null}
 
-## apply job stop and really stop path
-* greet
-    - utter_greet
-* apply_job
+## Generated Story -870223808643095922
+* inform_job
+    - utter_ask_role
+* inform_job{"role": "Software Development"}
+    - slot{"role": "Software Development"}
+    - action_sub_role
+* inform_job{"sub_role": "Fullstack"}
+    - slot{"sub_role": "Fullstack"}
+    - action_job
+    - slot{"jobRef": null}
+* inform_apply{"jobRef": "job-83737"}
+    - slot{"jobRef": "job-83737"}
+    - utter_ask_apply
+* affirm 
     - apply_form
-    - form{"name": "apply_form"}
-* stop
-    - utter_ask_continue
-* deny
-    - action_deactivate_form
     - form{"name": null}
+    - action_store_applicant
 
-## apply job stop but continue path
-* apply_job
-    - apply_form
-    - form{"name": "apply_form"}
-* stop
-    - utter_ask_continue
-* affirm
-    - apply_form
-    - form{"name": null}
-    - utter_apply_slots_values
-* thankyou
-    - utter_noworries
+## Generated Story -870223808643095922
+* inform_job
+    - utter_ask_role
+* inform_job
+    - action_sub_role
+    - action_job
+* inform_apply
+    - utter_ask_apply
+* deny 
+    - utter_ask_detail
+* ask_detail
+    - action_show_details

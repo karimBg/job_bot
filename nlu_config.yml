@@ -1,3 +1,8 @@
+--- 
 language: en
+<<<<<<< HEAD
 
 pipeline: spacy_sklearn
+=======
+pipeline: tensorflow_embedding
+>>>>>>> 8c71d2594e32ed11480e2ade92cccb380f0d5d94

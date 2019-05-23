@@ -13,7 +13,7 @@ def train_nlu(data, configs, model_dir):
 
 def run_nlu():
     interpreter = Interpreter.load("./models/current/default/nlu")
-    print(interpreter.parse(u"Ref-7821441221886"))
+    print(interpreter.parse(u"Marketing"))
 
 
 if __name__ == "__main__":

@@ -1,3 +1,4 @@
+@startuml
 # -*- coding: utf-8 -*-
 from typing import Dict, Text, Any, List, Union, Optional
 from rasa_core_sdk import Action
@@ -8,27 +9,69 @@ from rasa_core_sdk.executor import CollectingDispatcher
 from rasa_core_sdk.forms import FormAction, REQUESTED_SLOT
 
 # Our packages
+from repository.z import getRoleID
 from repository.job_data import get_job_data, list_jobs, generate_job_buttons
+from repository.applicant_data import saveApplicantData
+import re
 from repository.internship_data import list_internships, generate_internship_buttons
+from joblib import Memory 
 
 # jobs action
 class action_job(Action):
     def name(self):
         return "action_job"
     def run(self, dispatcher, tracker, domain):
-        job_title = tracker.get_slot("job_title")
+        jobRef = tracker.get_slot("jobRef")
         user_id = (tracker.current_state())["sender_id"]
+         #user_id = "189c6a81-abde-4388-a757-a50da959e8da"
+        sub_role = (tracker.get_slot("sub_role"))
+        role_id = getRoleID(sub_role)
 
-        # creates a list out of the existing jobs.
-        possible_jobs = list_jobs(user_id)
-
-        message = "These are the available job offers that i know about!"
-
+            # creates a list out of the existing jobs.
+        possible_jobs = list_jobs(user_id, role_id)
+        if(possible_jobs):
+            message = "These are the available positions that i know about!"
+        else:
+            message= " We don't have an open position in "+ sub_role+", please try again"
         # generates a list of buttons from the list of possible_jobs
         buttons = generate_job_buttons(possible_jobs)
-
         dispatcher.utter_button_message(message, buttons)
-        return [SlotSet("job_title", job_title)]
+        return [SlotSet("jobRef", jobRef)]
+
+class actionSubRole(Action):
+    def name(self):
+        return "action_sub_role"
+    def run(self, dispatcher, tracker, domain ):
+        role = tracker.get_slot("role")
+        dev_sub_role_list=[{"payload":"Back-End Development","title":"Back-End Development"},{"payload":"Front-End Development","title":"Front-End Development"},{"payload":"Fullstack","title":"Fullstack"}]
+        design_sub_role_list=[{"payload":"UX" ,"title": "UX only"},{"payload":"UI","title": "UI only"},{"payload":"UI/UX","title":"mix of both"}]
+        network_sub_role_list=[{"payload":"Security" ,"title": "Security Specialist"},{"payload":"Network Specialist","title": "Network Specialist"},{"payload":"Security Network","title":"Security Network"}]
+        Marketing_sub_role_list=[{"payload":"Digital Marketing" ,"title": "Digital Marketing"},{"payload":"Product Marketing","title": "Product Marketing"}]
+        btnmsg=""
+        btnlist =[]
+        if(role=="Software Development"):       
+            btnlist=dev_sub_role_list
+            btnmsg="Why don't you pick your prefered development role 👇"
+        elif (role=="UI/UX Design"):
+            btnlist=design_sub_role_list
+            btnmsg="That's great. We may have an opening in UI/UX Design 😃"
+        elif(role =="Security and network"):
+            btnmsg="what is your speciality ?😃"
+            btnlist=network_sub_role_list
+        elif(role =="Marketing"):
+            btnmsg="which one are you you more interested in?😃"
+            btnlist=Marketing_sub_role_list
+
+        if(btnlist):
+            buttons = []
+            for btn in btnlist:
+                title = (btn["title"])
+                payload = ( btn["payload"])
+                buttons.append({ "title": title, "payload": payload })
+            dispatcher.utter_button_message(btnmsg, buttons)
+        else:
+            dispatcher.utter_template("action_job",Tracker)
+        return   []      
 
 class jobs_form(FormAction):
     """Example of a custom form action"""
@@ -38,19 +81,19 @@ class jobs_form(FormAction):
     @staticmethod
     def required_slots(tracker: Tracker) -> List[Text]:
         """A list of required slots that the form has to fill"""
-        return ["job_title"]
+        return ["jobRef"]
     def submit(self, dispatcher, tracker, domain):
-        job_title = tracker.get_slot("job_title")
-        dispatcher.utter_template('utter_submit', tracker)
+        jobRef = tracker.get_slot("jobRef")
+        dispatcher.utter_template('utter_ask_apply', tracker)
         return []
-
 
 #internship actions
 class InternshipAction(Action):
     def name(self):
         return "action_internship"
     def run(self, dispatcher, tracker, domain):
-        user_id = (tracker.current_state())["sender_id"]
+        user_id = (tracker.current_state())["sender_id"] 
+        #user_id = "189c6a81-abde-4388-a757-a50da959e8da"
 
         # get all internship reference and project title ( recommended )
         possible_internships = list_internships(user_id)
@@ -91,12 +134,12 @@ class actionShowDetails(Action):
     def name(self):
         return "action_show_details"
     def run(self, dispatcher, tracker, domain):
-        job_title = tracker.get_slot("job_title")
+        jobRef = tracker.get_slot("jobRef")
         job_option = tracker.get_slot("JobOptions")
-        user_id = (tracker.current_state())["sender_id"]
-
+        #user_id = (tracker.current_state())["sender_id"]
+        user_id = "189c6a81-abde-4388-a757-a50da959e8da"
         #getting data from DB
-        job_data = get_job_data(job_option, job_title, user_id)
+        job_data = get_job_data(job_option, jobRef, user_id)
 
         #put stuff from DB here 
         dispatcher.utter_message(f"{job_data}")
@@ -113,11 +156,9 @@ class actionAcquaintance(Action):
 
 class ApplyForm(FormAction):
     """Example of a custom form action"""
-
     def name(self):
         # type: () -> Text
         """Unique identifier of the form"""
-
         return "apply_form"
 
     @staticmethod
@@ -136,7 +177,7 @@ class ApplyForm(FormAction):
             or a list of them, where a first match will be picked"""
 
         return {"jobRef": self.from_entity(entity="jobRef",
-                                            intent=["inform_apply","inform_job"]),
+                                            intent=["inform_apply"]),
                 "name": self.from_entity(entity="name",
                                                 intent="inform_apply"),                            
                 "experience_years": [self.from_entity(entity="experience_years",
@@ -150,7 +191,6 @@ class ApplyForm(FormAction):
                 "cv_link": [self.from_entity(entity="cv_link", intent=["inform","apply_job"]),
                                self.from_entity(entity="cv_link")]}
 
-
     @staticmethod
     def is_int(string: Text) -> bool:
         """Check if a string is an integer"""
@@ -159,8 +199,6 @@ class ApplyForm(FormAction):
             return True
         except ValueError:
             return False
-
-
 
     def validate_experience_years(self,
                             value: Text,
@@ -175,13 +213,31 @@ class ApplyForm(FormAction):
             dispatcher.utter_template('utter_wrong_experience_years', tracker)
             # validation failed, set slot to None
             return None
-
     @staticmethod
     def validate_email(value: Text,
                                  dispatcher: CollectingDispatcher,
                                  tracker: Tracker,
                                  domain: Dict[Text, Any]) -> Any:
+
+        EMAIL_REGEX = re.compile(r"[a-z A-Z]+[0-9 a-z A-Z]*@[a-z A-Z]+[.][a-z A-Z]+")
+        if EMAIL_REGEX.match(value):
             return value
+        else:
+            dispatcher.utter_template('utter_wrong_email', tracker)
+            # validation failed, set slot to None
+            return None
+    @staticmethod
+    def validate_cv_link(value: Text,
+                                 dispatcher: CollectingDispatcher,
+                                 tracker: Tracker,
+                                 domain: Dict[Text, Any]) -> Any:
+        CV_LINK_REGEX = re.compile(r"[https:\\/\\/]*[www.]*[a-z]*.[com|org|tn|fr|me]+[\\/in\\/]*[a-z A-z 0-9 -]+")
+        if CV_LINK_REGEX.match(value):
+            return value
+        else:
+            dispatcher.utter_template('utter_wrong_cv_link', tracker)
+            # validation failed, set slot to None
+            return None
 
     def submit(self,
                dispatcher: CollectingDispatcher,
@@ -191,5 +247,21 @@ class ApplyForm(FormAction):
             after all required slots are filled"""
         """in other words from here the applicant data goes to the database"""    
         # utter submit template
-        dispatcher.utter_template('utter_apply_submit', tracker)
+        dispatcher.utter_template('action_store_applicant', tracker)
         return []
+#this doesn't work i dunno why
+class actionstoreApplicant(Action):
+    def name(self):
+        return "action_store_applicant"
+    def run(self, dispatcher, tracker, domain):
+        jobRef=tracker.get_slot("jobRef")
+        name =tracker.get_slot("name")
+        experience_years=tracker.get_slot("experience_years")
+        phone_number=tracker.get_slot("phone_number")
+        email = tracker.get_slot("email")
+        cv_link=tracker.get_slot("cv_link")
+        userdb = "189c6a81-abde-4388-a757-a50da959e8da"
+        saveApplicantData(self,jobRef,name,experience_years,phone_number,email,cv_link, userdb)
+        dispatcher.utter_message("applicant saved")
+        return[]
+        
